@@ -1,0 +1,168 @@
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #e11937;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+
+.logo-escape-container{
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('../img/logo-escape.png');
+  height : 100%;
+
+}
+
+.container-row{
+  height : 100%;
+  font-size: 8vh;
+  background-color: rgba(200, 25, 55, 1);
+}
+
+.border-not-full{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 19%;
+  margin-bottom: 19%;
+  height : 70%;
+  width : 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.time-minutes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height : 100%;
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.time-seconds{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height : 100%;
+  padding: inherit;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.time-milliseconds{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height : 100%;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.container-logo{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  height : 50%;
+  width: 100%;
+
+}
+
+.container-timer{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  height : 65%;
+  width: 90%;
+}
+
+.timer-inner{
+  width : 100%;
+  top : 20%;
+}
+
+.container-timer-inner{
+  height : 100%;
+  width : 100%;
+ 
+}
+
+.container-bas p{
+  font-size: 1.7vh;
+}
+
+
+
+#particles {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.container-haut {
+  position: relative;
+  left: 0;
+  height : 33%;
+  width: 100%;
+  text-align: center;
+
+
+}
+
+.author{
+  font-size: 2.2vh !important;
+  font-weight: 700;
+}
+.container-milieu {
+  position: relative;
+  left: 0;
+  height : 33%;
+  width: 100%;
+  text-align: center;
+}
+.container-bas {
+  position: relative;
+  left: 0;
+  height : 23%;
+  width: 100%;
+  text-align: center;
+}
+.container-bas-logo-cgi {
+  position: relative;
+  left: 0;
+  height : 10%;
+  width: 100%;
+  text-align: center;
+  
+
+}
+
+.logo-cgi{
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('../img/logo-cgi.png');
+  height : 40%;
+}
+.intro {
+  position: absolute;
+  left: 0;
+  top: 1%;
+  height : 100%;
+  padding: 0 20px;
+  width: 100%;
+  margin-top: 0px ! important;
+  text-align: center;
+}
