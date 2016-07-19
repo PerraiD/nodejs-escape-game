@@ -21,7 +21,7 @@ $(document).ready(function() {
   $('.logo-escape-container').hide();
   rundelay();
 
-  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com/');
+  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com:8091/');
   socket.on('messageescape', function (data)
   {
   var obj = JSON.parse(data);
