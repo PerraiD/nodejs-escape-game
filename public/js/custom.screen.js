@@ -21,12 +21,12 @@ $(document).ready(function() {
   $('.logo-escape-container').hide();
   rundelay();
 
-  socket = io.connect('ws://127.0.0.1:8091/');
+  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com:8091/');
   socket.on('messageescape', function (data)
   {
-
-  waitingresponse(data);
   var obj = JSON.parse(data);
+  waitingresponse(obj);
+  
   console.log(obj.id);
 
   });	
@@ -39,9 +39,21 @@ $(document).ready(function() {
 });
 
 
-function screenreponse(){
+function screenreponsegood(){
   $(".logo-escape-container").removeClass('heart');
   welldone();
+}
+
+function screenreponsewrong(){
+  $(".logo-escape-container").removeClass('heart');
+  wrongdone();
+}
+
+function wrongdone(){
+   $("body").css("background-color",'#FF0000');
+   $('.logo-escape-container').css("background-image", "url(../img/wrong.png)");
+   $('.container-bas-secu').html('<p>TIME ERROR X00F3566</p>'); 
+   timeAction = setTimeout(changePhase,4000);
 }
 
 function welldone(){
@@ -70,7 +82,12 @@ $("body").css("background-color","#e11937");
 function waitingresponse(data){
 
   $(".logo-escape-container").addClass('heart');
-  timeAction = setTimeout(screenreponse,5000);
+  if(data.id == 1){
+    timeAction = setTimeout(screenreponsewrong,5000);
+  }else{
+    timeAction = setTimeout(screenreponsegood,5000);
+  }
+  
 }
 
 
@@ -158,7 +175,7 @@ function stopTimer()
 	   {
 
 			$.ajax({
-				url: "http://127.0.0.1:8091/api/wsescaperestoptimer",
+				url: "http://digitalweek-escapegameiot.rhcloud.com:8091/api/wsescaperestoptimer",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -173,7 +190,7 @@ function startTimer()
 	   {
 
 			$.ajax({
-				url: "http://127.0.0.1:8091/api/wsescaperestarttimer",
+				url: "http://digitalweek-escapegameiot.rhcloud.com:8091/api/wsescaperestarttimer",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
