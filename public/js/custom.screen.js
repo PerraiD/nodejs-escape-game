@@ -21,7 +21,7 @@ $(document).ready(function() {
   $('.logo-escape-container').hide();
   rundelay();
 
-  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com:8091/');
+  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com/');
   socket.on('messageescape', function (data)
   {
   var obj = JSON.parse(data);
@@ -175,7 +175,7 @@ function stopTimer()
 	   {
 
 			$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com:8091/api/wsescaperestoptimer",
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestoptimer",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -190,7 +190,7 @@ function startTimer()
 	   {
 
 			$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com:8091/api/wsescaperestarttimer",
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestarttimer",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
