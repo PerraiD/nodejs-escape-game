@@ -17,7 +17,7 @@ $(document).ready(function() {
   });
 
   endTimeBomb = addMinutes(Date.parse(new Date()),10);
-  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com:8091/');
+  socket = io.connect('ws://digitalweek-escapegameiot.rhcloud.com');
   socket.on('messageescape', function (data)
   {
   var obj = JSON.parse(data);
