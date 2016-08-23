@@ -5,7 +5,7 @@
 var endTimeBomb = null;
 var socket = null;
 var tid = null;
-  var speed = 1000;
+var speed = 1000;
 $(document).ready(function() {
   $('#particles').particleground({
     dotColor: '#5cbdaa',
@@ -20,18 +20,19 @@ $(document).ready(function() {
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
   socket.on('messageescape', function (data)
   {
-  var obj = JSON.parse(data);
-  console.log(obj.id);
-  if(obj.id == 1){
-    speed = 500;
-  }
+    var obj = JSON.parse(data);
+    console.log("pin id "+ obj.id);
+    console.log("validation of pin step :" + obj.validate);
+    if(!obj.validate){
+      speed = 500;
+    }
 
   });	
   socket.on('endtimechange', function (data)
   {
     console.log(data);
 
-    if(data != 'null'){
+    if(data !== null){
           endTimeBomb = Date.parse(data);
           tid = setInterval(getTimeRemaining, 33);
     }else{

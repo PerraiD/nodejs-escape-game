@@ -106,6 +106,8 @@ var SampleApp = function()
      *  Create the routing table entries + handlers for the application.
      */
     self.createRoutes = function() {
+        self.LastStep = 0;
+
         self.routes = { };
 
         // Routes for /health, /asciimo, /env and /
@@ -137,6 +139,9 @@ var SampleApp = function()
            res.send("timer restarted");
         }
 
+        self.routes['/api/getPinState'] = function(req,res){
+            //returning a html page that show pin state from arduino;
+        }
         self.routes['/api/wsescape/:id'] = function (req, res)
         {
               
@@ -148,13 +153,52 @@ var SampleApp = function()
                     var formathour = d.getHours();
                     formathour = formathour+6;
                     var  formatTime = formathour+" h "+formatminute+" et "+d.getSeconds()+" secondes"
-                    var pinstates = {
-                        id : req.params.id,
+
+
+                    var pinId = req.params.id;
+                                         
+                    var message={
+                        step = 0,
+                        validate = false
+                    }
+                    /** control for step 1 pin 30 31 */
+                    if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
+                        self.LastStep = 1;
+                        if(pinId === 31){ //good cuted pin                             
+                            message.validate = true;
+                        }
 
                     }
 
-                     self.io.sockets.emit('messageescape', JSON.stringify(pinstates));
-                     res.send("messageescape id : "+req.params.id+" bien envoyé");
+                    /** control for step 2 pin 36 37 */
+                    if(( pinId === 36 || pinId === 37) && self.LastStep < 2) {
+                        self.LastStep = 2;
+                        if(pinId === 36){
+                             message.validate = true;
+                        }
+
+                    }
+                    /** control for step 3 pin  42 43*/
+                    if((pinId === 42 || pinId === 43) && self.LastStep < 3) {
+                        self.LastStep = 3;
+                        if(pinId === 42){
+                             message.validate = true;
+                        }
+
+                    }
+                    /** control for step 4 pin 48 49 */
+                     if((pinId === 48 || pinId === 49 ) && self.LastStep < 4) {
+                        self.LastStep = 4;
+                        if(pinId === 49){
+                            message.validate = true;
+                        }
+
+                    }
+                    message.step = self.LastStep;
+                    self.LastStep++;
+                    
+                    self.io.sockets.emit('messageescape', JSON.stringify(message));
+                    res.send("messageescape id : "+req.params.id+" bien envoyé");
                
         };
 

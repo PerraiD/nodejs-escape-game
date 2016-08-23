@@ -24,15 +24,20 @@ $(document).ready(function() {
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
   socket.on('messageescape', function (data)
   {
-  var obj = JSON.parse(data);
-  waitingresponse(obj);
-  
-  console.log(obj.id);
+    var obj = JSON.parse(data);
+    waitingresponse(obj);
+    phase = obj.step;
+
+    if(obj.validate){
+       welldone();
+    }else{
+       wrongdone();
+    }
 
   });	
   socket.on('endtimechange', function (data)
   {
-  console.log(data);
+    console.log(data);
   });	
   stopTimer();
 
@@ -213,7 +218,7 @@ function phase2(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 2/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-   timeAction = setTimeout(phase3,2000);
+   //timeAction = setTimeout(phase3,2000);
 }
 
 function phase3(){
@@ -229,6 +234,7 @@ function phase4(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 4/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
+  //TODO CHANGE SecureDesactive => CheckSecurity
   timeAction = setTimeout(secureDesactive,2000);
 }
 
