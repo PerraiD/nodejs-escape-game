@@ -158,8 +158,8 @@ var SampleApp = function()
                     var pinId = req.params.id;
                                          
                     var message={
-                        step = 0,
-                        validate = false
+                        step : 0,
+                        validate : false
                     }
                     /** control for step 1 pin 30 31 */
                     if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
@@ -196,7 +196,7 @@ var SampleApp = function()
                     }
                     message.step = self.LastStep;
                     self.LastStep++;
-                    
+
                     self.io.sockets.emit('messageescape', JSON.stringify(message));
                     res.send("messageescape id : "+req.params.id+" bien envoyé");
                
