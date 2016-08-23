@@ -198,6 +198,10 @@ var SampleApp = function()
                     message.step = self.LastStep;
                     self.LastStep++;
 
+                    if(self.LastStep === 5){
+                        self.LastStep = 0;
+                    }
+
                     self.io.sockets.emit('messageescape', JSON.stringify(message));
                     res.send("messageescape id : "+req.params.id+" bien envoyé");
                

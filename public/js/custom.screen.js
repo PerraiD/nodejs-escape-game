@@ -96,7 +96,6 @@ function waitingresponse(data){
 }
 
 
-
 function addparticle(){
   
   $('#particles').particleground({
@@ -105,11 +104,6 @@ function addparticle(){
     density : 10000
   });
 
-
-	
-			   
-    
-  
 }
 
 function rundelay(){
