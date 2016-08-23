@@ -220,7 +220,7 @@ function phase3(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 3/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-  timeAction = setTimeout(phase4,2000);
+  //timeAction = setTimeout(phase4,2000);
 }
 
 function phase4(){
@@ -229,7 +229,7 @@ function phase4(){
   $('.container-bas-secu').html('<p>Sécurité active 4/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
   //TODO CHANGE SecureDesactive => CheckSecurity
-  timeAction = setTimeout(secureDesactive,2000);
+  //timeAction = setTimeout(secureDesactive,2000);
 }
 
 function secureDesactive(){
