@@ -21,7 +21,7 @@ $(document).ready(function() {
   socket.on('messageescape', function (data)
   {
     var obj = JSON.parse(data);
-    console.log("pin id "+ obj.step);
+    console.log("step id "+ obj.step);
     console.log("validation of pin step :" + obj.validate);
     if(!obj.validate){
       speed = 500;

@@ -158,6 +158,7 @@ var SampleApp = function()
                     var pinId = parseInt(req.params.id);
                                          
                     var message={
+                        id: pinId,
                         step : 0,
                         validate : false
                     }
@@ -171,7 +172,7 @@ var SampleApp = function()
                     }
 
                     /** control for step 2 pin 36 37 */
-                    if(( pinId === 36 || pinId === 37) && self.LastStep < 2) {
+                    if((pinId === 36 || pinId === 37) && self.LastStep < 2) {
                         self.LastStep = 2;
                         if(pinId === 36){
                              message.validate = true;
