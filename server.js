@@ -155,7 +155,7 @@ var SampleApp = function()
                     var  formatTime = formathour+" h "+formatminute+" et "+d.getSeconds()+" secondes"
 
 
-                    var pinId = req.params.id;
+                    var pinId = parseInt(req.params.id);
                                          
                     var message={
                         step : 0,
