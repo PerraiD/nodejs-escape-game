@@ -196,7 +196,6 @@ var SampleApp = function()
 
                     }
                     message.step = self.LastStep;
-                    self.LastStep++;
 
                     if(self.LastStep === 4){
                         self.LastStep = 0;
