@@ -27,7 +27,7 @@ $(document).ready(function() {
     var obj = JSON.parse(data);
     waitingresponse(obj);
     phase = obj.step;
-
+    console.log(obj.step);
     
 
   });	
