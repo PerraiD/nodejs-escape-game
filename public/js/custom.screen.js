@@ -28,11 +28,7 @@ $(document).ready(function() {
     waitingresponse(obj);
     phase = obj.step;
 
-    if(obj.validate){
-       welldone();
-    }else{
-       wrongdone();
-    }
+    
 
   });	
   socket.on('endtimechange', function (data)
@@ -87,11 +83,12 @@ $("body").css("background-color","#e11937");
 function waitingresponse(data){
 
   $(".logo-escape-container").addClass('heart');
-  if(data.id == 1){
-    timeAction = setTimeout(screenreponsewrong,5000);
-  }else{
-    timeAction = setTimeout(screenreponsegood,5000);
-  }
+
+  if(!data.validate){
+      timeAction = setTimeout(screenreponsewrong,5000);
+    }else{
+      timeAction = setTimeout(screenreponsegood,5000);
+    }
   
 }
 
@@ -204,7 +201,7 @@ function phase1(){
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-1.png)"); 
   $('.container-bas-secu').html('<p>Sécurité active 1/5</p>');
   $(".logo-escape-container" ).fadeTo( 1500 , 1, function() {});
-//  timeAction = setTimeout(phase2,2000);
+
 }
 
 function phase2(){
@@ -212,7 +209,7 @@ function phase2(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 2/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-   //timeAction = setTimeout(phase3,2000);
+
 }
 
 function phase3(){
@@ -220,7 +217,7 @@ function phase3(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 3/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-  //timeAction = setTimeout(phase4,2000);
+
 }
 
 function phase4(){
