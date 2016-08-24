@@ -55,16 +55,13 @@ function requestFullScreen(elem){
            hidingNumber = true;
            break;
          case  4:
-           $('.time-minutes').html('--');
-           $('.time-seconds-texte').html('--');
-           $('.time-milliseconds').html('--');
+           setTimerToNull();
        }
       
-    }else if(obj.fatal){
-           $('.time-minutes').html('--');
-           $('.time-seconds-texte').html('--');
-           $('.time-milliseconds').html('--');
+    }else if(obj.fatal || step === 4){
+         setTimerToNull();
     }
+
 
   });	
   socket.on('endtimechange', function (data)
@@ -78,9 +75,7 @@ function requestFullScreen(elem){
         endTimeBomb = Date.parse(data);
         tid = setInterval(getTimeRemaining, 33);
     }else{
-      $('.time-minutes').html('--');
-      $('.time-seconds-texte').html('--');
-      $('.time-milliseconds').html('--');
+      setTimerToNull();
     }
 
   });
@@ -88,6 +83,13 @@ function requestFullScreen(elem){
   	
 });
 
+
+function setTimerToNull(){
+      $('.time-minutes').html('--');
+      $('.time-seconds-texte').html('--');
+      $('.time-milliseconds').html('--');
+
+}
 
 function addMinutes(date, minutes) {
   var d = new Date();
