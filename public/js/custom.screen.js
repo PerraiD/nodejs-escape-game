@@ -105,13 +105,13 @@ function waitingresponse(data){
     if(data.step < 4){
       timeAction = setTimeout(screenreponsewrong,5000);
     }else{
-      timeAction = setTimeout(secureDesactive,5000);
+      timeAction = setTimeout(explosion,5000);
     }      
   }else{
       if(data.step < 4){
         timeAction = setTimeout(screenreponsegood,5000);
       }else{
-        timeAction = setTimeout(explosion,5000);
+        timeAction = setTimeout(secureDesactive,5000);
       }      
     }
   
