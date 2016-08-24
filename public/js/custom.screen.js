@@ -271,7 +271,7 @@ function explosion(){
       "left" :"50%",
       "margin-top" :"-120px",
       "margin-left":"-160px",
-      "background-image":'url("http:"//www.findsourcecode.com/wp-content/uploads/2014/09/bomber.png")',         
+      "background-image":'url("http://www.findsourcecode.com/wp-content/uploads/2014/09/bomber.png")',         
       "-webkit-animation":"play 2s steps(20) 2s",
       "-moz-animation":"play 2s steps(20) 2s"
     });
@@ -284,7 +284,7 @@ function explosion(){
 function addMinutes(date, minutes) {
   var d = new Date();
   d.setMinutes(d.getMinutes() + minutes);
-  return d;
+  return d;w
 }
 
 function launchTimer(endTimeBomb){
