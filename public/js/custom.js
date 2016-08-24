@@ -8,6 +8,7 @@ var tid = null;
 var speed = 1000;
 var init = false;
 var step = 0;
+var hidingNumber = false;
 
 $(document).ready(function() {
   $('#particles').particleground({
@@ -35,9 +36,7 @@ $(document).ready(function() {
            endTimeBomb = removeMinutes(endTimeBomb,2);
            break;
         case  3:
-           $('.time-minutes').html('??');
-           $('.time-seconds-texte').html('??');
-           $('.time-milliseconds').html('??');
+           hidingNumber = true;
            break;
          case  4:
            $('.time-minutes').html('--');
@@ -78,7 +77,7 @@ function addMinutes(date, minutes) {
 
 
 function removeMinutes(date, minutes) {
-  date.setMinutes(d.getMinutes() - minutes);
+  date.setMinutes(date.getMinutes() - minutes);
   return date;
 }
 
@@ -122,10 +121,16 @@ function getTimeRemaining(){
     if (minutes < 10){
         minutes = '0'+minutes;
     }
-  
-    $('.time-minutes').html(minutes);
-    $('.time-seconds-texte').html(seconds);
-    $('.time-milliseconds').html(milliseconds);
+    if(!hidingNumber){
+      $('.time-minutes').html(minutes);
+      $('.time-seconds-texte').html(seconds);
+      $('.time-milliseconds').html(milliseconds);
+    }else{
+      $('.time-minutes').html("??");
+      $('.time-seconds-texte').html("??");
+      $('.time-milliseconds').html("??");
+    }
+    
 
   }else{
 
