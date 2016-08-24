@@ -9,16 +9,7 @@ var phase = 1;
 
 $(document).ready(function() {
   
-  function requestFullScreen(elem){
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullScreen) {
-        elem.webkitRequestFullScreen();
-    }
- }
-  requestFullScreen(document.body);
+  window.scrollTo(0,1);
 
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)

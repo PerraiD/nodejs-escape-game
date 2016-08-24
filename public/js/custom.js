@@ -14,17 +14,7 @@ var hidingNumber = false;
 
 $(document).ready(function() {
 
-function requestFullScreen(elem){
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullScreen) {
-        elem.webkitRequestFullScreen();
-    }
- }
-  requestFullScreen(document.body);
-
+window.scrollTo(0,1);
 
 
   $('#particles').particleground({
@@ -56,10 +46,11 @@ function requestFullScreen(elem){
            break;
          case  4:
            setTimerToNull();
+ 
        }
       
     }else if(obj.fatal || step === 4){
-         setTimerToNull();
+         setTimerToNull();       
     }
 
 
@@ -89,6 +80,7 @@ function setTimerToNull(){
       $('.time-minutes').html('--');
       $('.time-seconds-texte').html('--');
       $('.time-milliseconds').html('--');
+      hidingNumber = false;
 
 }
 
