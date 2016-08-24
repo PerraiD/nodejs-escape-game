@@ -254,11 +254,13 @@ function secureDesactive(){
 
 function explosion(){
 
+  $('.container-bas-secu').html('<p></p>');
   $("body").css("background-color","#FF0000");  
-  $("#txtparasite").removeClass('parasiteb');
+  $("#txtparasite").addClass('parasiteb');
   $("#txtparasite").attr("data-text", "System Failure");
   $('#txtparasite').html("Système en cours de destruction");
   $('#txtparasite').show();
+  
   // $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   // $('.logo-escape-container').css('opacity', '0');
   // $('#container-bas-secu-id').addClass("shake");
