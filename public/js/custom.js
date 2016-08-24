@@ -94,13 +94,7 @@ function addMinutes(date, minutes) {
 
 
 function removeMinutes(date, minutes) {
-  console.log(date);
-  console.log(Date.parse(date.toString));
-  var d = Date.parse(date);
-  console.log(d);
-  console.log(d.getMinutes());
-  d.setMinutes(d.getMinutes() - minutes);
-  return d;
+    return date - 120000;
 }
 
 
