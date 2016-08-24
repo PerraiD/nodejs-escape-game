@@ -9,7 +9,9 @@ var phase = 1;
 
 $(document).ready(function() {
   
-  window.scrollTo(0,1);
+  if (screenfull.enabled) {
+      screenfull.request();
+  }
 
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
