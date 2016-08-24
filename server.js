@@ -138,6 +138,11 @@ var SampleApp = function()
            res.send("timer restarted");
         }
 
+        self.routes['/api/timeElapsed'] = function(req,res)
+        {
+             self.io.sockets.emit('timeElapsed');
+        }
+
         self.routes['/api/getPinState'] = function(req,res){
             //returning a html page that show pin state from arduino;
         }
@@ -288,7 +293,7 @@ var SampleApp = function()
         });
 
         self.io.sockets.on('timeElapsed',function(){
-            self.io.sockets.emit('timeElapsed');
+           
         });
     };
 

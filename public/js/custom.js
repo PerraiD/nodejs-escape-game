@@ -120,8 +120,17 @@ function getTimeRemaining(){
     $('.time-milliseconds').html(milliseconds);
 
   }else{
-    console.log("emission of the timeElapsed");
-    socket.emit('timeElapsed');
+   
+    
+    $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				  console.log("emission of the timeElapsed");
+         }
+    }); 
+
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');
