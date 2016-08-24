@@ -168,6 +168,17 @@ var SampleApp = function()
                         validate : false,
                         fatal : false
                     }
+
+                    /** control for fatal step like cutting a pin in a bad step */
+                    if( (pinId > 31 && self.LastStep === 0) 
+                        || (pinId > 37 && self.LastStep === 1) 
+                        || (pinId > 43 && self.LastStep === 2)                         
+                     )
+                     {
+                         self.LastStep = 0;
+                         message.fatal = true;
+                     }
+
                     /** control for step 1 pin 30 31 */
                     if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
                         self.LastStep = 1;
@@ -202,16 +213,7 @@ var SampleApp = function()
                         message.step = self.LastStep;
                     }
                    
-                    /** control for fatal step like cutting a pin in a bad step */
-                    if( (pinId > 31 && self.LastStep === 1) 
-                        || (pinId > 37 && self.LastStep === 2) 
-                        || (pinId > 43 && self.LastStep === 3)                         
-                     )
-                     {
-                         self.LastStep = 0;
-                         message.fatal = true;
-                     }
-
+                
 
                     if(self.LastStep === 4){
                         self.LastStep = 0;
