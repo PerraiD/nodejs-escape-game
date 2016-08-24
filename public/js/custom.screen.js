@@ -254,37 +254,24 @@ function secureDesactive(){
 
 function explosion(){
 
-  $("body").css("background-color","#228B22");
+  $("body").css("background-color","#FF0000");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
-  $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').addClass('parasite');
-  $('.container-bas-secu').attr("data-text", "ERROR");
-  $('.container-bas-secu').html('<p>Système en cours de destruction</p>');
-  setTimeout(function(){
-    $("body").css("background-color","#FF0000");
-    $(".container-timer" ).empty();
-    $(".container-timer").css({
-      "width":"320px",
-      "height":"240px",
-      "position" :"absolute",
-      "top" :"50%",
-      "left" :"50%",
-      "margin-top" :"-120px",
-      "margin-left":"-160px",
-      "background-image":'url("http://www.findsourcecode.com/wp-content/uploads/2014/09/bomber.png")',         
-      "-webkit-animation":"play 2s steps(20) 2s",
-      "-moz-animation":"play 2s steps(20) 2s"
-    });
-    //setTimeout( ,2000);
-  },5000);
- 
+  $('.logo-escape-container').css('opacity', '0');
+  $('#container-bas-secu-id').addClass("shake");
+  $('#container-bas-secu-id').html('<h1>Système en cours de destruction</h1>');
+  $('#container-bas-secu-id').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+    function(){
+      console.log("animation ended")
+      $('#container-bas-secu').removeClass("shake");
+    }
+  );
   stopTimer();
 }
 
 function addMinutes(date, minutes) {
   var d = new Date();
   d.setMinutes(d.getMinutes() + minutes);
-  return d;w
+  return d;
 }
 
 function launchTimer(endTimeBomb){
