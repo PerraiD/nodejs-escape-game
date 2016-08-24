@@ -87,6 +87,7 @@ function requestFullScreen(elem){
 
 function addMinutes(date, minutes) {
   var d = new Date();
+  console.log(d);
   d.setMinutes(d.getMinutes() + minutes);
   return d;
 }
