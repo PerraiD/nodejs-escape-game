@@ -257,14 +257,15 @@ overflow:hidden;
 clip:rect(0,900px,0,0);
 -webkit-animation:anim 2s infinite linear alternate-reverse;
 animation:anim 2s infinite linear alternate-reverse}
+
 .parasitec:before{
 content:attr(data-text);
 position:absolute;
 width:100%;
 left:-2px;
-text-shadow:1px 0 red;
+text-shadow:1px 0 blue;
 top:0;
-background: red(160, 25, 55, 1);
+background: red;
 overflow: hidden;
 clip:rect(0,900px,0,0);
 -webkit-animation:anim-2 3s infinite linear alternate-reverse;
