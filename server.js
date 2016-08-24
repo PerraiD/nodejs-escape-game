@@ -138,10 +138,10 @@ var SampleApp = function()
            res.send("timer restarted");
         }
 
-        self.routes['/api/timeElapsed'] = function(req,res)
+        self.routes['/api/timeelapsed'] = function(req,res)
         {
              self.io.sockets.emit('timeElapsed');
-             res.send("timer is ended");
+             res.send("timer is ended").end();
         }
 
         self.routes['/api/getPinState'] = function(req,res){
