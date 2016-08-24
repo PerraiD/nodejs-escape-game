@@ -286,6 +286,10 @@ var SampleApp = function()
                 console.log('disconnect');
             });
         });
+
+        self.io.sockets.on('timeElapsed',function(){
+            self.io.sockets.emit('timeElapsed')
+        });
     };
 
 

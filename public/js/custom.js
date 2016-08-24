@@ -85,7 +85,7 @@ function screenReussi(){
 
 
 function getTimeRemaining(){
-  console.log("refreshing all the time");
+ 
 
   
   var t = endTimeBomb - Date.now();
@@ -120,7 +120,8 @@ function getTimeRemaining(){
     $('.time-milliseconds').html(milliseconds);
 
   }else{
-
+    
+    socket.emit('timeElapsed')
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');

@@ -31,8 +31,10 @@ $(document).ready(function() {
     
 
   });
+
   socket.on('timeElapsed',function(data){
-    explosion();
+    console.log("time elapsed");
+    //explosion();
   });
 
   socket.on('endtimechange', function (data)
