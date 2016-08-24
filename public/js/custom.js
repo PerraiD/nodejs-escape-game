@@ -61,7 +61,11 @@ $(document).ready(function() {
       $('.time-milliseconds').html('--');
     }
 
-  });	
+  });
+
+  setTimeout(function() {
+    explosion();
+  }, 15000);	
 });
 
 
@@ -123,20 +127,7 @@ function getTimeRemaining(){
     $('.time-milliseconds').html(milliseconds);
 
   }else{
-   
-    if(init){
-      $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
-				dataType: 'html',
-				jsonpCallback: 'callback',
-				 success: function() { 
-				  console.log("emission of the timeElapsed success");
-         }
-      }); 
-    }
-     
-     init = true;
-
+       
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');
