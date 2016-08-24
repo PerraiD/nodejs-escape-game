@@ -165,7 +165,8 @@ var SampleApp = function()
                     var message={
                         id: pinId,
                         step : 0,
-                        validate : false
+                        validate : false,
+                        fatal : false
                     }
                     /** control for step 1 pin 30 31 */
                     if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
@@ -173,8 +174,8 @@ var SampleApp = function()
                         if(pinId === 31){ //good cuted pin                             
                             message.validate = true;
                         }
-
-                    }
+                        message.step = self.LastStep;
+                    }   
 
                     /** control for step 2 pin 36 37 */
                     if((pinId === 36 || pinId === 37) && self.LastStep < 2) {
@@ -182,7 +183,7 @@ var SampleApp = function()
                         if(pinId === 36){
                              message.validate = true;
                         }
-
+                        message.step = self.LastStep;
                     }
                     /** control for step 3 pin  42 43*/
                     if((pinId === 42 || pinId === 43) && self.LastStep < 3) {
@@ -190,7 +191,7 @@ var SampleApp = function()
                         if(pinId === 42){
                              message.validate = true;
                         }
-
+                        message.step = self.LastStep;
                     }
                     /** control for step 4 pin 48 49 */
                      if((pinId === 48 || pinId === 49 ) && self.LastStep < 4) {
@@ -198,9 +199,18 @@ var SampleApp = function()
                         if(pinId === 49){
                             message.validate = true;
                         }
-
+                        message.step = self.LastStep;
                     }
-                    message.step = self.LastStep;
+                   
+                    /** control for fatal step like cutting a pin in a bad step */
+                    if( (pinId > 31 && self.LastStep === 1) 
+                        || (pinId > 37 && self.LastStep === 2) 
+                        || (pinId > 43 && self.LastStep === 3)                         
+                     )
+                     {
+                         message.fatal = true;
+                     }
+
 
                     if(self.LastStep === 4){
                         self.LastStep = 0;

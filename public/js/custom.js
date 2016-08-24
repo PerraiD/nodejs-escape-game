@@ -43,7 +43,7 @@ function requestFullScreen(elem){
     var obj = JSON.parse(data);
     step = obj.step;
     console.log("validation of pin step :" + obj.validate);
-    if(!obj.validate){
+    if(!obj.validate && !obj.fatal){
        switch (step) {
          case 1:
            speed = 500;
@@ -60,6 +60,10 @@ function requestFullScreen(elem){
            $('.time-milliseconds').html('--');
        }
       
+    }else if(obj.fatal){
+           $('.time-minutes').html('--');
+           $('.time-seconds-texte').html('--');
+           $('.time-milliseconds').html('--');
     }
 
   });	

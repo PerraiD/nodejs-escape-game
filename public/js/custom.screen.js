@@ -100,20 +100,23 @@ $("body").css("background-color","#e11937");
 function waitingresponse(data){
 
   $(".logo-escape-container").addClass('heart');
-
-  if(!data.validate){
-    if(data.step < 4){
-      timeAction = setTimeout(screenreponsewrong,5000);
-    }else{
+  if(data.fatal){
       timeAction = setTimeout(explosion,5000);
-    }      
   }else{
+    if(!data.validate){
       if(data.step < 4){
-        timeAction = setTimeout(screenreponsegood,5000);
+        timeAction = setTimeout(screenreponsewrong,5000);
       }else{
-        timeAction = setTimeout(secureDesactive,5000);
+        timeAction = setTimeout(explosion,5000);
       }      
-    }
+    }else{
+        if(data.step < 4){
+          timeAction = setTimeout(screenreponsegood,5000);
+        }else{
+          timeAction = setTimeout(secureDesactive,5000);
+        }      
+      }
+  }
   
 }
 
