@@ -10,7 +10,23 @@ var init = false;
 var step = 0;
 var hidingNumber = false;
 
+
+
 $(document).ready(function() {
+
+function requestFullScreen(elem){
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullScreen) {
+        elem.webkitRequestFullScreen();
+    }
+ }
+  requestFullScreen(document.body);
+
+
+
   $('#particles').particleground({
     dotColor: '#5cbdaa',
     lineColor: '#5cbdaa',
@@ -77,8 +93,9 @@ function addMinutes(date, minutes) {
 
 
 function removeMinutes(date, minutes) {
-  date.setMinutes(date.getMinutes() - minutes);
-  return date;
+  var d = Date.parse(date);
+  d.setMinutes(d.getMinutes() - minutes);
+  return d;
 }
 
 
