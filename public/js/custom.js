@@ -52,7 +52,7 @@ $(document).ready(function() {
   {
     console.log("endTimeCalled");
 
-    if(data !== null){
+    if(data !== 'none'){
         if(tid !== null){
           clearInterval(tid); 
         }

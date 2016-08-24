@@ -125,7 +125,7 @@ var SampleApp = function()
 
         self.routes['/api/wsescaperestoptimer'] = function (req, res)
         {
-           endtime = 'null';
+           endtime = 'none';
            self.io.sockets.emit('endtimechange', endtime.toString());
            res.send("timer stopped");
         }
@@ -285,7 +285,7 @@ var SampleApp = function()
             console.log('nbclient connected : '+allClients);
             
            
-           self.io.sockets.emit('endtimechange', endtime.toString());            
+           //self.io.sockets.emit('endtimechange', endtime.toString());            
             client.on('disconnect', function() {
                 clearTimeout(my_timer);
                 allClients -= 1;
