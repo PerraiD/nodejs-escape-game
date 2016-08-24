@@ -50,7 +50,7 @@ $(document).ready(function() {
   });	
   socket.on('endtimechange', function (data)
   {
-    console.log(data);
+    console.log("endTimeCalled");
 
     if(data !== null){
           endTimeBomb = Date.parse(data);
