@@ -6,6 +6,7 @@ var endTimeBomb = null;
 var socket = null;
 var tid = null;
 var speed = 1000;
+var init = false;
 var step = 0;
 
 $(document).ready(function() {
@@ -123,7 +124,7 @@ function getTimeRemaining(){
 
   }else{
    
-    if(step > 0){
+    if(init){
       $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
 				dataType: 'html',
@@ -133,7 +134,8 @@ function getTimeRemaining(){
          }
       }); 
     }
-    
+     
+     init = true;
 
     clearInterval(tid);
     $('.time-minutes').html('--');
