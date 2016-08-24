@@ -254,17 +254,21 @@ function secureDesactive(){
 
 function explosion(){
 
-  $("body").css("background-color","#FF0000");
-  $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
-  $('.logo-escape-container').css('opacity', '0');
-  $('#container-bas-secu-id').addClass("shake");
-  $('#container-bas-secu-id').html('<h1>Système en cours de destruction</h1>');
-  $('#container-bas-secu-id').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-    function(){
-      console.log("animation ended")
-      $('#container-bas-secu').removeClass("shake");
-    }
-  );
+  $("body").css("background-color","#FF0000");  
+  $("#txtparasite").removeClass('parasiteb');
+  $("#txtparasite").attr("data-text", "ERROR");
+  $('#txtparasite').html("Système en cours de destruction");
+  $('#txtparasite').show();
+  // $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
+  // $('.logo-escape-container').css('opacity', '0');
+  // $('#container-bas-secu-id').addClass("shake");
+  // $('#container-bas-secu-id').html('<h1>Système en cours de destruction</h1>');
+  // $('#container-bas-secu-id').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+  //   function(){
+  //     console.log("animation ended")
+  //     $('#container-bas-secu').removeClass("shake");
+  //   }
+  // );
   stopTimer();
 }
 
