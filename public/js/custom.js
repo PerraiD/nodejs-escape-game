@@ -24,7 +24,24 @@ $(document).ready(function() {
     console.log("step id "+ obj.step);
     console.log("validation of pin step :" + obj.validate);
     if(!obj.validate){
-      speed = 500;
+       switch (obj.step) {
+         case 1:
+           speed = 500;
+           break;
+        case  2:
+           endTimeBomb = removeMinutes(endTimeBomb,2);
+           break;
+        case  3:
+           $('.time-minutes').html('??');
+           $('.time-seconds-texte').html('??');
+           $('.time-milliseconds').html('??');
+           break;
+         case  4:
+           $('.time-minutes').html('--');
+           $('.time-seconds-texte').html('--');
+           $('.time-milliseconds').html('--');
+       }
+      
     }
 
   });	
@@ -53,12 +70,9 @@ function addMinutes(date, minutes) {
 
 
 function removeMinutes(date, minutes) {
-  var d = new Date();
-  d.setMinutes(d.getMinutes() - minutes);
-  return d;
+  date.setMinutes(d.getMinutes() - minutes);
+  return date;
 }
-
-
 
 
 function screenError(){
