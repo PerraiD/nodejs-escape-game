@@ -257,7 +257,8 @@ function explosion(){
   $("body").css("background-color","#228B22");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').addClass('parasiteb');
+  $('.container-bas-secu').addClass('parasite');
+  $('.container-bas-secu').attr("data-text", "ERROR");
   $('.container-bas-secu').html('<p>Système en cours de destruction</p>');
   setTimeout(function(){
     $("body").css("background-color","#FF0000");
