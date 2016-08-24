@@ -63,20 +63,7 @@ $(document).ready(function() {
 
   });
 
-  setTimeout(function() {
-    if(init){
-      $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
-				dataType: 'html',
-				jsonpCallback: 'callback',
-				 success: function() { 
-				  console.log("emission of the timeElapsed success");
-         }
-      }); 
-    }
-     
-     init = true;
-  }, 15000);	
+  	
 });
 
 

@@ -219,7 +219,7 @@ var SampleApp = function()
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
             res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             res.set('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
+            res.send(self.cache_get('index.html'));
         };
 
           self.routes['/screen'] = function(req,res){
