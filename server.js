@@ -132,7 +132,7 @@ var SampleApp = function()
          self.routes['/api/wsescaperestarttimer'] = function (req, res)
         {
            endtime = new Date();
-           endtime.setMinutes(endtime.getMinutes() + 10);
+           endtime.setMinutes(endtime.getMinutes() + 1);
            self.LastStep = 0;
            self.io.sockets.emit('endtimechange', endtime.toString());
            res.send("timer restarted");
