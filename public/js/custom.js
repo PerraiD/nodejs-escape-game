@@ -6,6 +6,8 @@ var endTimeBomb = null;
 var socket = null;
 var tid = null;
 var speed = 1000;
+var step = 0;
+
 $(document).ready(function() {
   $('#particles').particleground({
     dotColor: '#5cbdaa',
@@ -21,10 +23,10 @@ $(document).ready(function() {
   socket.on('messageescape', function (data)
   {
     var obj = JSON.parse(data);
-    console.log("step id "+ obj.step);
+    step = obj.step;
     console.log("validation of pin step :" + obj.validate);
     if(!obj.validate){
-       switch (obj.step) {
+       switch (step) {
          case 1:
            speed = 500;
            break;
@@ -121,15 +123,17 @@ function getTimeRemaining(){
 
   }else{
    
-    
-    $.ajax({
+    if(step > 0){
+      $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
-				  console.log("emission of the timeElapsed");
+				  console.log("emission of the timeElapsed success");
          }
-    }); 
+      }); 
+    }
+    
 
     clearInterval(tid);
     $('.time-minutes').html('--');

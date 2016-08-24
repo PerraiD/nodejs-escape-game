@@ -141,6 +141,7 @@ var SampleApp = function()
         self.routes['/api/timeElapsed'] = function(req,res)
         {
              self.io.sockets.emit('timeElapsed');
+             res.send("timer is ended");
         }
 
         self.routes['/api/getPinState'] = function(req,res){
