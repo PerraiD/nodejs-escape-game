@@ -128,7 +128,16 @@ function getTimeRemaining(){
     $('.time-milliseconds').html(milliseconds);
 
   }else{
-    console.log("cleared interval");
+
+    $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	console.log("timeAction stop");
+        //  timeAction = setTimeout(phase1,1000);
+				 	 }
+			}) 
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');
