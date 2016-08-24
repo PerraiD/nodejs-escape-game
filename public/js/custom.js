@@ -53,8 +53,11 @@ $(document).ready(function() {
     console.log("endTimeCalled");
 
     if(data !== null){
-          endTimeBomb = Date.parse(data);
-          tid = setInterval(getTimeRemaining, 33);
+        if(tid !== null){
+          clearInterval(tid); 
+        }
+        endTimeBomb = Date.parse(data);
+        tid = setInterval(getTimeRemaining, 33);
     }else{
       $('.time-minutes').html('--');
       $('.time-seconds-texte').html('--');
