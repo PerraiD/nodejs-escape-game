@@ -120,8 +120,8 @@ function getTimeRemaining(){
     $('.time-milliseconds').html(milliseconds);
 
   }else{
-    
-    socket.emit('timeElapsed')
+    console.log("emission of the timeElapsed");
+    socket.emit('timeElapsed');
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');

@@ -288,7 +288,7 @@ var SampleApp = function()
         });
 
         self.io.sockets.on('timeElapsed',function(){
-            self.io.sockets.emit('timeElapsed')
+            self.io.sockets.emit('timeElapsed');
         });
     };
 

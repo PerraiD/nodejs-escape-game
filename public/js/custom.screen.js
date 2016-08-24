@@ -33,7 +33,7 @@ $(document).ready(function() {
   });
 
   socket.on('timeElapsed',function(data){
-    console.log("time elapsed");
+  console.log("time elapsed");
     //explosion();
   });
 
