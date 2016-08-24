@@ -77,7 +77,7 @@ function wrongdone(){
 function welldone(){
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
    $("body").css("background-color","#228B22");
-   $('.container-bas-secu').html('<p>Bien joué ! vous avez empêché une catastrophe</p>'); 
+   $('.container-bas-secu').html('<p>Bien joué !</p>'); 
    timeAction = setTimeout(changePhase,3000);
 }
 
