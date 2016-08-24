@@ -208,6 +208,7 @@ var SampleApp = function()
                         || (pinId > 43 && self.LastStep === 3)                         
                      )
                      {
+                         self.LastStep = 0;
                          message.fatal = true;
                      }
 
