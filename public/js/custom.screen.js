@@ -256,7 +256,7 @@ function explosion(){
 
   $("body").css("background-color","#FF0000");  
   $("#txtparasite").removeClass('parasiteb');
-  $("#txtparasite").attr("data-text", "ERROR");
+  $("#txtparasite").attr("data-text", "System Failure");
   $('#txtparasite').html("Système en cours de destruction");
   $('#txtparasite').show();
   // $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
