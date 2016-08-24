@@ -85,6 +85,7 @@ function requestFullScreen(elem){
 
 
 function setTimerToNull(){
+      clearInterval(tid);
       $('.time-minutes').html('--');
       $('.time-seconds-texte').html('--');
       $('.time-milliseconds').html('--');
@@ -165,11 +166,7 @@ function getTimeRemaining(){
         //  timeAction = setTimeout(phase1,1000);
 				 	 }
 			}) 
-    clearInterval(tid);
-    $('.time-minutes').html('--');
-    $('.time-seconds-texte').html('--');
-    $('.time-milliseconds').html('--');
-
+    setTimerToNull();
   }
   
 
