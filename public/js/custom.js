@@ -71,7 +71,9 @@ function screenReussi(){
 
 
 function getTimeRemaining(){
+  console.log("refreshing all the time");
 
+  
   var t = endTimeBomb - Date.now();
 
 

@@ -30,7 +30,11 @@ $(document).ready(function() {
     console.log(obj.step);
     
 
-  });	
+  });
+  socket.on('timeElapsed',function(data){
+    explosion();
+  });
+
   socket.on('endtimechange', function (data)
   {
     console.log(data);
@@ -60,7 +64,7 @@ function wrongdone(){
 function welldone(){
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
    $("body").css("background-color","#228B22");
-   $('.container-bas-secu').html('<p>Bien joué !</p>'); 
+   $('.container-bas-secu').html('<p>Bien joué ! vous avez empêché une catastrophe</p>'); 
    timeAction = setTimeout(changePhase,3000);
 }
 
@@ -85,9 +89,17 @@ function waitingresponse(data){
   $(".logo-escape-container").addClass('heart');
 
   if(!data.validate){
+    if(data.step < 4){
       timeAction = setTimeout(screenreponsewrong,5000);
     }else{
-      timeAction = setTimeout(screenreponsegood,5000);
+      timeAction = setTimeout(secureDesactive,5000);
+    }      
+  }else{
+      if(data.step < 4){
+        timeAction = setTimeout(screenreponsegood,5000);
+      }else{
+        timeAction = setTimeout(explosion,5000);
+      }      
     }
   
 }
@@ -233,11 +245,19 @@ function secureDesactive(){
   $("body").css("background-color","#228B22");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Bravo sécurité activé</p>');
+  $('.container-bas-secu').html('<p>Bravo sécurité désactivé</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-
+  stopTimer();
 }
 
+function explosion(){
+  $("body").css("background-color","#228B22");
+  $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
+  $(".logo-escape-container").css('opacity', '0');
+  $('.container-bas-secu').html('<p>Raté sécurité désactivé</p>');
+  $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
+  stopTimer();
+}
 
 function addMinutes(date, minutes) {
   var d = new Date();

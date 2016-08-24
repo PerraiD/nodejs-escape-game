@@ -8,7 +8,6 @@ var http = require('http');
 var md5 = require('md5');
 var cachingTime = 60000;
 var endtime = 'null';
-var phase = 0;
 /**
  *  Define the sample application.
  */
@@ -133,8 +132,8 @@ var SampleApp = function()
          self.routes['/api/wsescaperestarttimer'] = function (req, res)
         {
            endtime = new Date();
-           endtime.setMinutes(endtime.getMinutes() + 1);
-           phase = 0;
+           endtime.setMinutes(endtime.getMinutes() + 10);
+           self.LastStep = 0;
            self.io.sockets.emit('endtimechange', endtime.toString());
            res.send("timer restarted");
         }
