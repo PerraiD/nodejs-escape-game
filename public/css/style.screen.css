@@ -238,6 +238,39 @@ clip:rect(0,900px,0,0);
 -webkit-animation:anim-2 3s infinite linear alternate-reverse;
 animation:anim-2 3s infinite linear alternate-reverse}
 
+.parasitec{
+  font-size:10vh;
+  position:relative;
+  width:100%;
+  margin:0 auto
+}
+
+.parasitec:after{
+content:attr(data-text);
+position:absolute;
+left:2px;
+width:100%;
+text-shadow:-1px 0 red;
+top:0;
+background: red;
+overflow:hidden;
+clip:rect(0,900px,0,0);
+-webkit-animation:anim 2s infinite linear alternate-reverse;
+animation:anim 2s infinite linear alternate-reverse}
+.parasitec:before{
+content:attr(data-text);
+position:absolute;
+width:100%;
+left:-2px;
+text-shadow:1px 0 red;
+top:0;
+background: red(160, 25, 55, 1);
+overflow: hidden;
+clip:rect(0,900px,0,0);
+-webkit-animation:anim-2 3s infinite linear alternate-reverse;
+animation:anim-2 3s infinite linear alternate-reverse}
+
+
 @keyframes anim{
 0%{clip:rect(59px,9999px,37px,0)}
 5%{clip:rect(37px,9999px,34px,0)}

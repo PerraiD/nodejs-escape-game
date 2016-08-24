@@ -256,7 +256,7 @@ function explosion(){
 
   $('.container-bas-secu').html('<p></p>');
   $("body").css("background-color","#FF0000");  
-  $("#txtparasite").addClass('parasiteb');
+  $("#txtparasite").addClass('parasitec');
   $("#txtparasite").attr("data-text", "System Failure");
   $('#txtparasite').html("Système en cours de destruction");
   $('#txtparasite').show();
