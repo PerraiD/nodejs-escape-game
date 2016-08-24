@@ -94,7 +94,6 @@ function addMinutes(date, minutes) {
 
 function removeMinutes(date, minutes) {
   console.log(date);
-  console.log(date.getMinutes());
   console.log(Date.parse(date.toString));
   var d = Date.parse(date);
   console.log(d);
