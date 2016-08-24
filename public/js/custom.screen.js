@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   socket.on('timeElapsed',function(data){
   console.log("time elapsed");
-    //explosion();
+  explosion();
   });
 
   socket.on('endtimechange', function (data)

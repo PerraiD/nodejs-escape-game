@@ -88,11 +88,8 @@ function screenReussi(){
 
 
 function getTimeRemaining(){
- 
-
-  
+   
   var t = endTimeBomb - Date.now();
-
 
   var milliseconds = Math.floor( (t) % 60 );
   if(milliseconds > -1 || (Math.floor( (t/speed) % 60 ) == 0)){
@@ -122,26 +119,14 @@ function getTimeRemaining(){
     $('.time-seconds-texte').html(seconds);
     $('.time-milliseconds').html(milliseconds);
 
-  }else{
-   
-    if(init){
-      $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeElapsed",
-				dataType: 'html',
-				jsonpCallback: 'callback',
-				 success: function() { 
-				  console.log("emission of the timeElapsed success");
-         }
-      }); 
-    }
-     
-     init = true;
+  }else{ 
+    console.log("condition error");
 
     clearInterval(tid);
     $('.time-minutes').html('--');
     $('.time-seconds-texte').html('--');
     $('.time-milliseconds').html('--');
-
+    console.log("clear interval fail");
   }
   
 
