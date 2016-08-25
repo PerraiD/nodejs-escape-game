@@ -8,6 +8,7 @@ var http = require('http');
 var md5 = require('md5');
 var cachingTime = 60000;
 var endtime = 'null';
+var bodyParser = require('body-parser');
 /**
  *  Define the sample application.
  */
