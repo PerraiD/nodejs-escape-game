@@ -9,6 +9,12 @@ var md5 = require('md5');
 var cachingTime = 60000;
 var endtime = 'null';
 var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+
 /**
  *  Define the sample application.
  */
@@ -159,7 +165,7 @@ var SampleApp = function()
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
-           res.send(req.body);
+           res.send(body);
 
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
