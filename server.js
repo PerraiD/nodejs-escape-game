@@ -56,6 +56,7 @@ var SampleApp = function()
         //  Local cache for static content.
         self.zcache['screen.html'] = fs.readFileSync('./views/screen.html');
         self.zcache['index.html'] = fs.readFileSync('./views/index.html');
+        self.zcache['states.html'] = fs.readFileSync('./views/states.html');
     };
 
 
@@ -147,8 +148,18 @@ var SampleApp = function()
              res.send("timer is ended").end();
         }
 
-        self.routes['/api/getPinState'] = function(req,res){
-            //returning a html page that show pin state from arduino;
+        self.routes['/api/pinstate/:id'] = function(req,res){
+           var pinId = parseInt(req.params.id);
+           var state = req.body;
+
+           var stateMsg = {
+               'pinId' : pinId,
+               'state' : state
+           }
+
+           self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
+           res.status(202).end();
+
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
         {
@@ -168,7 +179,7 @@ var SampleApp = function()
                     var message={
                         id: pinId,
                         step : 0,
-                        userErrors:0,
+                        userErrors: self.userErrors,
                         validate : false,
                         fatal : false
                     }
@@ -249,6 +260,14 @@ var SampleApp = function()
             res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             res.set('Content-Type', 'text/html');
             res.send(self.cache_get('screen.html') );
+        }
+
+         self.routes['/states'] = function(req,res){
+             res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+            res.set('Content-Type', 'text/html');
+            res.send(self.cache_get('states.html'));
         }
     };
 
