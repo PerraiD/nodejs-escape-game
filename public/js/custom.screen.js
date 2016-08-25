@@ -9,9 +9,7 @@ var phase = 1;
 
 $(document).ready(function() {
   
-  if (screenfull.enabled) {
-      screenfull.request();
-  }
+   toggleFullScreen();
 
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
@@ -314,4 +312,19 @@ function getTimeRemaining(){
  $('.time-milliseconds').html(milliseconds);
 */
 
+}
+
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
 }
