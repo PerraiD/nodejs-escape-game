@@ -105,7 +105,9 @@ var SampleApp = function()
      *  Create the routing table entries + handlers for the application.
      */
     self.createRoutes = function() {
+
         self.LastStep = 0;
+        self.userErrors = 0;
 
         self.routes = { };
 
@@ -165,6 +167,7 @@ var SampleApp = function()
                     var message={
                         id: pinId,
                         step : 0,
+                        userErrors:0,
                         validate : false,
                         fatal : false
                     }
@@ -213,8 +216,13 @@ var SampleApp = function()
                         message.step = self.LastStep;
                     }
                    
+                    if(!message.validate) {
+                        self.userErrors++;
+                        message.userErrors = self.userErrors;
+                    }
 
                     if(self.LastStep === 4){
+                        self.userErrors = 0;
                         self.LastStep = 0;
                     }
 

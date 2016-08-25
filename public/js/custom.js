@@ -35,8 +35,9 @@ $(document).ready(function() {
     var obj = JSON.parse(data);
     step = obj.step;
     console.log("validation of pin step :" + obj.validate);
+    console.log("number of user errors  :" + obj.usersErrors);
     if(!obj.validate && !obj.fatal){
-       switch (step) {
+       switch (obj.usersErrors) {
          case 1:
            speed = 500;
            break;
