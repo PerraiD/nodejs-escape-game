@@ -162,7 +162,7 @@ var SampleApp = function()
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
-           res.send();
+           res.status(200).send(body);
 
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
