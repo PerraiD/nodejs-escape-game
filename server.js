@@ -136,6 +136,7 @@ var SampleApp = function()
            endtime = new Date();
            endtime.setMinutes(endtime.getMinutes() + 10);
            self.LastStep = 0;
+           self.userErrors = 0;
            self.io.sockets.emit('endtimechange', endtime.toString());
            res.send("timer restarted");
         }
@@ -221,7 +222,7 @@ var SampleApp = function()
                         message.userErrors = self.userErrors;
                     }
 
-                    if(self.LastStep === 4){
+                    if(self.LastStep === 4 || message.fatal){
                         self.userErrors = 0;
                         self.LastStep = 0;
                     }
