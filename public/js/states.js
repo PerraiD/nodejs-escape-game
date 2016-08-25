@@ -15,9 +15,13 @@ $(document).ready(function() {
     var obj = JSON.parse(data);
     console.log(obj);
     if(obj.state){
+        $('#state'+obj.pinId).css("font-weight","normal");
         $('#state'+obj.pinId).html('connected');
+        $('#state'+obj.pinId).fadeTo( 1500 , 1, function() {});
     }else{
-         $('#state'+obj.pinId).html('<span style="font-weight:bold">disconnected<span>');
+        $('#state'+obj.pinId).css("font-weight","bold");
+        $('#state'+obj.pinId).html('disconnected');
+        $('#state'+obj.pinId).fadeTo( 1500 , 1, function() {});
     }
   });	
   	
