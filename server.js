@@ -154,7 +154,7 @@ var SampleApp = function()
 
            var stateMsg = {
                'pinId' : pinId,
-               'state' : state
+               'state' : req.body
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
