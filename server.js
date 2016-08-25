@@ -302,8 +302,12 @@ var SampleApp = function()
        
 
         for (var r in self.routes)
-        {
-            self.app.get(r, self.routes[r]);
+        {   if(r === '/api/pinstate/:id'){
+                 self.app.post(r,self.app.get[r]);
+             }else{
+                 self.app.get(r, self.routes[r]);
+             }
+            
         }
 
 
