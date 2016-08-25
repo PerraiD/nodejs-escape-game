@@ -150,11 +150,11 @@ var SampleApp = function()
 
         self.routes['/api/pinstate/:id'] = function(req,res){
            var pinId = parseInt(req.params.id);
-           var state = req.body;
+           var state = req.body.state;
 
            var stateMsg = {
                'pinId' : pinId,
-               'state' : req.body
+               'state' : state
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
