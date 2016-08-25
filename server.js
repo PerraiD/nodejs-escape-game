@@ -159,7 +159,7 @@ var SampleApp = function()
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
-           res.status(202).end();
+           res.send(req.body);
 
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
