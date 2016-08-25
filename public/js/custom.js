@@ -13,8 +13,11 @@ var hidingNumber = false;
 
 
 $(document).ready(function() {
-
-  toggleFullScreen();
+  
+  if(confirm('Bienvenu')){
+    toggleFullScreen();
+  }
+ 
 
   $('#particles').particleground({
     dotColor: '#5cbdaa',
