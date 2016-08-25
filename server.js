@@ -154,7 +154,7 @@ var SampleApp = function()
 
         self.routes['/api/pinstate/:id'] = function(req,res){
            var pinId = parseInt(req.params.id);
-           var body = JSON.parse(req.body);
+           var body = req.body;
  
            var stateMsg = {
                'pinId' : pinId,
