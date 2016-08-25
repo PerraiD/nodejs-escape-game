@@ -9,10 +9,7 @@ var md5 = require('md5');
 var cachingTime = 60000;
 var endtime = 'null';
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+
 
 
 /**
@@ -158,14 +155,14 @@ var SampleApp = function()
         self.routes['/api/pinstate/:id'] = function(req,res){
            var pinId = parseInt(req.params.id);
            var body = req.body;
-
+ 
            var stateMsg = {
                'pinId' : pinId,
                'state' : body.state
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
-           res.send(body);
+           res.send();
 
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
@@ -286,6 +283,10 @@ var SampleApp = function()
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express();
+        self.app.use(bodyParser.json());
+        self.app.use(bodyParser.urlencoded({
+            extended: true
+        }));
 
         var path = require('path')
 
