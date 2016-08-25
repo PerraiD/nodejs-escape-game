@@ -154,7 +154,7 @@ var SampleApp = function()
 
         self.routes['/api/pinstate/:id'] = function(req,res){
            var pinId = parseInt(req.params.id);
-           var body = req.body;
+           var body = JSON.parse(req.body);
  
            var stateMsg = {
                'pinId' : pinId,
@@ -162,7 +162,7 @@ var SampleApp = function()
            }
 
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
-           res.status(200).send(body);
+           res.status(200).send(req.body);
 
         }
         self.routes['/api/wsescape/:id'] = function (req, res)
