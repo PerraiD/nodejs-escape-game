@@ -13,10 +13,6 @@ var hidingNumber = false;
 
 
 $(document).ready(function() {
-  
-  if(confirm('Bienvenu')){
-    toggleFullScreen();
-  }
  
 
   $('#particles').particleground({
