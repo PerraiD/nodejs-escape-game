@@ -1,0 +1,36 @@
+.badge-30{
+    background-color: #3366ff;
+}
+.badge-31{
+    background-color:#009933;
+}
+.badge-36{
+    background-color:Black;
+}
+.badge-37{
+    background-color:#996633;
+}
+.badge-42{
+    background-color:#ff9933;
+}
+.badge-43{
+    background-color:#cc99ff; 
+}
+.badge-48{
+    background-color:Yellow;
+    color:black;
+}
+.badge-49{
+    background-color:white;
+    color:black;
+}
+
+.badge{
+    border: solid 1px black;
+}
+
+.badge-state{
+    text-align: center;
+    font-weight:bold;
+}
+
