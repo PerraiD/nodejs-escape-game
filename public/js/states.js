@@ -19,14 +19,14 @@ $(document).ready(function() {
         $('#state'+obj.pinId).html('connected');      
         $('#state'+obj.pinId).parent().removeClass('danger');
 
-        $('#state'+obj.pinId).html('OK');
+        $('#badge-'+obj.pinId).html('OK');
         
     }else{
         $('#state'+obj.pinId).css("font-weight","bold");
         $('#state'+obj.pinId).html('disconnected');
         $('#state'+obj.pinId).parent().addClass('danger');
     
-        $('#state'+obj.pinId).html('X');
+        $('#badge-'+obj.pinId).html('X');
     }
   });	
   	
