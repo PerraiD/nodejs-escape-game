@@ -329,6 +329,7 @@ function toggleFullScreen() {
 }
 
 function startCSSBombAnimation(){
+    $("body").css("background-color","#151515");
     $('#particles').show();        
 }
 
