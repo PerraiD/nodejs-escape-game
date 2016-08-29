@@ -95,9 +95,8 @@ function CSSstopTimer(){
       //black screen setting
       $('#particles').hide();
       $('#centered-div-stop').show();
-      $("#centered-mesg-stop").attr("data-text", "SECRET");
-      $("#centered-mesg-stop").addClass('parasite');
-      $("#centered-mesg-stop").html('DON\'T TOUCH');      
+      $("#centered-mesg-stop").attr("data-text", "PROJECT");
+      $("#centered-mesg-stop").addClass('parasite');         
       $('body').css('background','black');
 }
 
