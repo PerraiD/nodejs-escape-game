@@ -33,9 +33,9 @@ $(document).ready(function() {
        switch (obj.userErrors) {
          case 1:
            speed = 500;
-           ('#lowBtmSound').pause();
-           ('#highBtmSound').play();
-           ('#highBtmSound').loop = true;
+           ('#lowBtmSound')[0].pause();
+           ('#highBtmSound')[0].play();
+           ('#highBtmSound')[0].loop = true;
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
@@ -65,8 +65,8 @@ $(document).ready(function() {
         }
         endTimeBomb = Date.parse(data);
         tid = setInterval(getTimeRemaining, 33);
-        ('#lowBtmSound').play();
-        ('#lowBtmSound').loop = true;
+        ('#lowBtmSound')[0].play();
+        ('#lowBtmSound')[0].loop = true;
 
     }else{     
       CSSstopTimer();
@@ -79,8 +79,8 @@ $(document).ready(function() {
 });
 
 function setTimerToNull(){
-      ('#lowBtmSound').pause();
-      ('#highBtmSound').pause();
+      ('#lowBtmSound')[0].pause();
+      ('#highBtmSound')[0].pause();
       clearInterval(tid);
       $('.time-minutes').html('--');
       $('.time-seconds-texte').html('--');

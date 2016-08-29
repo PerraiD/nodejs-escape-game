@@ -75,7 +75,7 @@ function screenreponsewrong(){
 
 function wrongdone(){
 
-   $('failSound').play();
+   $('failSound')[0].play();
 
    $("body").css("background-color",'#FF0000');
    $('.logo-escape-container').css("background-image", "url(../img/wrong.png)");
@@ -85,7 +85,7 @@ function wrongdone(){
 
 function welldone(){
 
-   $('successSound').play();   
+   $('successSound')[0].play();   
 
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
    $("body").css("background-color","#228B22");
@@ -112,9 +112,9 @@ $("body").css("background-color","#e11937");
 function waitingresponse(data){
 
   $(".logo-escape-container").addClass('heart');
-  $('#ambianceSound').pause();
+  $('#ambianceSound')[0].pause();
   
-  $("#heartSound").play();
+  $("#heartSound")[0].play();
 
   if(data.fatal){
       timeAction = setTimeout(function(){
@@ -141,13 +141,13 @@ function waitingresponse(data){
     }else{
         if(data.step < 4){
           timeAction = setTimeout(function(){
-            $("#heartSound").pause();
+            $("#heartSound")[0].pause();
             screenreponsegood();
           }
           ,5000);
         }else{
           timeAction = setTimeout(function(){
-            $("#heartSound").pause();
+            $("#heartSound")[0].pause();
             secureDesactive();
           }
           ,5000);
@@ -158,9 +158,9 @@ function waitingresponse(data){
 }
 
 function stopHeartAndStartAmbianceSound(){
-    $("#heartSound").pause();
-    $('#ambianceSound').play();
-    $('#ambianceSound').loop = true;
+    $("#heartSound")[0].pause();
+    $('#ambianceSound')[0].play();
+    $('#ambianceSound')[0].loop = true;
 }
 
 function addparticle(){
@@ -212,7 +212,7 @@ function fourAction(){
 }
 
 function fiveAction(){
- $('#securityAlertSound').play();   
+ $('#securityAlertSound')[0].play();   
  $("#txtparasite").attr("data-text", "ERROR");
  $('#txtparasite').html("INTRUSION DETECTÉE");
  timeAction = setTimeout(sixAction,2000);
@@ -228,9 +228,9 @@ function sixAction(){
 
 function lastAction(){
   
-  $('#securityAlertSound').pause();
-  $('#ambianceSound').play();
-  $('#ambianceSound').loop = true;
+  $('#securityAlertSound')[0].pause();
+  $('#ambianceSound')[0].play();
+  $('#ambianceSound')[0].loop = true;
   $("body").css("background-color","#a01937");
   $('#txtparasite').hide();
  
@@ -311,8 +311,8 @@ function secureDesactive(){
 }
 
 function explosion(){
-  
-  $('#explosionSound').play();
+
+  $('#explosionSound')[0].play();
 
   $('.container-bas-secu').html('<p></p>');
   $("body").css("background-color","#FF0000");  
