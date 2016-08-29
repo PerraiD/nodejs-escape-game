@@ -74,6 +74,9 @@ function screenreponsewrong(){
 }
 
 function wrongdone(){
+
+   $('failSound').play();
+
    $("body").css("background-color",'#FF0000');
    $('.logo-escape-container').css("background-image", "url(../img/wrong.png)");
    $('.container-bas-secu').html('<p>TIME ERROR X00F3566</p>'); 
@@ -81,6 +84,9 @@ function wrongdone(){
 }
 
 function welldone(){
+
+   $('successSound').play();   
+
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
    $("body").css("background-color","#228B22");
    $('.container-bas-secu').html('<p>Bien joué !</p>'); 
@@ -106,26 +112,56 @@ $("body").css("background-color","#e11937");
 function waitingresponse(data){
 
   $(".logo-escape-container").addClass('heart');
+  $('#ambianceSound').pause();
+  
+  $("#heartSound").play();
+
   if(data.fatal){
-      timeAction = setTimeout(explosion,5000);
+      timeAction = setTimeout(function(){
+          stopHeartAndStartAmbianceSound()
+          explosion();          
+      }
+      ,5000);
   }else{
     if(!data.validate){
       if(data.step < 4){
-        timeAction = setTimeout(screenreponsewrong,5000);
+
+        timeAction = setTimeout(function(){
+          stopHeartAndStartAmbianceSound();
+          screenreponsewrong();
+        },5000);
+
       }else{
-        timeAction = setTimeout(explosion,5000);
+         timeAction = setTimeout(function(){
+          stopHeartAndStartAmbianceSound();
+          explosion();          
+        }
+        ,5000);
       }      
     }else{
         if(data.step < 4){
-          timeAction = setTimeout(screenreponsegood,5000);
+          timeAction = setTimeout(function(){
+            $("#heartSound").pause();
+            screenreponsegood();
+          }
+          ,5000);
         }else{
-          timeAction = setTimeout(secureDesactive,5000);
+          timeAction = setTimeout(function(){
+            $("#heartSound").pause();
+            secureDesactive();
+          }
+          ,5000);
         }      
       }
   }
   
 }
 
+function stopHeartAndStartAmbianceSound(){
+    $("#heartSound").pause();
+    $('#ambianceSound').play();
+    $('#ambianceSound').loop = true;
+}
 
 function addparticle(){
   
@@ -138,7 +174,8 @@ function addparticle(){
 }
 
 function rundelay(){
-    console.log('run');
+  
+  console.log('run');
   timeAction = setTimeout(firstAction,3000);
 }
 
@@ -175,7 +212,7 @@ function fourAction(){
 }
 
 function fiveAction(){
-   
+ $('#securityAlertSound').play();   
  $("#txtparasite").attr("data-text", "ERROR");
  $('#txtparasite').html("INTRUSION DETECTÉE");
  timeAction = setTimeout(sixAction,2000);
@@ -191,13 +228,14 @@ function sixAction(){
 
 function lastAction(){
   
-  
+  $('#securityAlertSound').pause();
+  $('#ambianceSound').play();
+  $('#ambianceSound').loop = true;
   $("body").css("background-color","#a01937");
   $('#txtparasite').hide();
  
   startTimer();
   
-
 }
 
 
@@ -273,6 +311,8 @@ function secureDesactive(){
 }
 
 function explosion(){
+  
+  $('#explosionSound').play();
 
   $('.container-bas-secu').html('<p></p>');
   $("body").css("background-color","#FF0000");  
