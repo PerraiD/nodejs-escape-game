@@ -85,7 +85,7 @@ function wrongdone(){
 
 function welldone(){
 
-   $('successSound')[0].play();   
+   $('#successSound')[0].play();   
 
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
    $("body").css("background-color","#228B22");
