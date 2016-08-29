@@ -1,26 +1,43 @@
 .badge-30{
+    margin-right: 1%;     
+    height: 100%;
+    font-size: 2vh;
     background-color: #3366ff;
 }
 .badge-31{
+    height: 100%;
+    font-size: 2vh;
     background-color:#009933;
 }
 .badge-36{
+    height: 100%;
+    font-size: 2vh;
     background-color:Black;
 }
 .badge-37{
+    height: 100%;
+    font-size: 2vh;
     background-color:#996633;
 }
 .badge-42{
+    height: 100%;
+    font-size: 2vh;
     background-color:#ff9933;
 }
 .badge-43{
+    height: 100%;
+    font-size: 2vh;
     background-color:#cc99ff; 
 }
 .badge-48{
+    height: 100%;
+    font-size: 2vh;
     background-color:Yellow;
     color:black;
 }
 .badge-49{
+    height: 100%;
+    font-size: 2vh;
     background-color:white;
     color:black;
 }
@@ -30,10 +47,10 @@
 }
 
 .badge-state{
-    text-align: center;
-    font-weight:bold;
+    text-align : left;
+    font-weight: bold;
 }
 
-#startButton {
+.restartButton {
     margin-top: 5%;
 }

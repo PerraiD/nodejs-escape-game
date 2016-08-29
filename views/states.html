@@ -55,7 +55,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row badge-state">
             <div class="col-xs-1">
                 <span class="badge badge-30">
@@ -109,8 +109,12 @@
             <div id="badge-49" class="col-xs-1">X</div>
         </div>
 
-        <button id="startButton" type="button" class="btn btn-success btn-block" onclick="stopAnimation()">
+        <button  type="button" class="btn btn-success btn-block restartButton" onclick="stopAnimation()">
             Reboot screens animations
+        </button>
+
+          <button type="button" class="btn btn-primary btn-block restartButton" onclick="startAnimation()">
+           Launch animations
         </button>
 
         <h2>Pin states</h2>       
