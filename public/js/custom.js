@@ -83,7 +83,7 @@ function setTimerToNull(){
 function CSSstartTimer(){
 
      $('body').css('background','#e11937');
-     $('#centered-div-stop').show();
+     $('#centered-div-stop').hide();
      $('#particles').show();     
      $('#particles').particleground({
       dotColor: '#5cbdaa',
