@@ -14,12 +14,9 @@ var hidingNumber = false;
 
 $(document).ready(function() {
  
-
-  $('#particles').particleground({
-    dotColor: '#5cbdaa',
-    lineColor: '#5cbdaa',
-
-  });
+  CSSstopTimer();
+  
+ 
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
   });
@@ -58,12 +55,13 @@ $(document).ready(function() {
   {
     console.log("endTimeCalled");
 
-    if(data !== 'none'){
+    if(data !== 'none'){ //we restart the timer
+        CSSstartTimer();
         if(tid !== null){
           clearInterval(tid); 
         }
         endTimeBomb = Date.parse(data);
-        tid = setInterval(getTimeRemaining, 33);
+        tid = setInterval(getTimeRemaining, 33);        
     }else{
       setTimerToNull();
     }
@@ -73,15 +71,37 @@ $(document).ready(function() {
   	
 });
 
-
 function setTimerToNull(){
       clearInterval(tid);
       $('.time-minutes').html('--');
       $('.time-seconds-texte').html('--');
       $('.time-milliseconds').html('--');
       hidingNumber = false;
-
+      CSSstopTimer();
 }
+
+function CSSstartTimer(){
+
+     $('body').css('background','#e11937');
+     $('#centered-div-stop').show();
+     $('#particles').show();     
+     $('#particles').particleground({
+      dotColor: '#5cbdaa',
+      lineColor: '#5cbdaa',
+    });
+}
+
+function CSSstopTimer(){
+      //black screen setting
+      $('#particles').hide();
+      $('#centered-div-stop').show();
+      $("#centered-mesg-stop").attr("data-text", "no way");
+      $("#centered-mesg-stop").addClass('parasite');
+      $("#centered-mesg-stop").html('DON\'T TOUCH');      
+      $('body').css('background','black');
+}
+
+
 
 function addMinutes(date, minutes) {
   var d = new Date();

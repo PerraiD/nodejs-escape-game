@@ -35,8 +35,8 @@ $(document).ready(function() {
   });
 
   socket.on('timeElapsed',function(data){
-  console.log("time elapsed");
-  explosion();
+    console.log("time elapsed");
+    explosion();
   });
 
   socket.on('endtimechange', function (data)
@@ -162,7 +162,7 @@ function fourAction(){
 function fiveAction(){
    
  $("#txtparasite").attr("data-text", "ERROR");
- $('#txtparasite').html("INTRUSION DETECTÉ");
+ $('#txtparasite').html("INTRUSION DETECTÉE");
  timeAction = setTimeout(sixAction,2000);
 }
 
@@ -252,7 +252,7 @@ function secureDesactive(){
   $("body").css("background-color","#228B22");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Bravo sécurité désactivé</p>');
+  $('.container-bas-secu').html('<p>Bravo sécurité désactivée</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
   stopTimer();
 }
@@ -263,7 +263,7 @@ function explosion(){
   $("body").css("background-color","#FF0000");  
   $("#txtparasite").addClass('parasitec');
   $("#txtparasite").attr("data-text", "System Failure");
-  $('#txtparasite').html("Système en cours de destruction");
+  $('#txtparasite').html("Désoler, bombe explosée !");
   $('#txtparasite').show();
   
   // $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 

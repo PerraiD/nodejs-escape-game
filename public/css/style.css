@@ -104,13 +104,24 @@ body {
   font-size: 1.7vh;
 }
 
+#centered-div-stop{
+  width: 100%;
+  height: 100%;
+  margin-top: 20%;
+  display: none;
+}
 
+#centered-mesg-stop{
+  height: 100%;
+  width: 100%;
+}
 
 #particles {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 .container-haut {
   position: relative;
   left: 0;
@@ -165,4 +176,134 @@ body {
   width: 100%;
   margin-top: 0px ! important;
   text-align: center;
+}
+
+.parasite{
+  font-size:10vh;
+  position:relative;
+  width:100%;
+  margin:0 auto}
+
+.parasite:after{
+  content:attr(data-text);
+  position:absolute;
+  left:2px;
+  width:100%;
+  text-shadow:-1px 0 red;
+  top:0;
+  background: black;
+  overflow:hidden;
+  clip:rect(0,900px,0,0);
+  -webkit-animation:anim 2s infinite linear alternate-reverse;
+  animation:anim 2s infinite linear alternate-reverse}
+
+.parasite:before{
+  content:attr(data-text);
+  position:absolute;
+  width:100%;
+  left:-2px;
+  text-shadow:1px 0 blue;
+  top:0;
+  background: black;
+  overflow: hidden;
+  clip:rect(0,900px,0,0);
+  -webkit-animation:anim-2 3s infinite linear alternate-reverse;
+  animation:anim-2 3s infinite linear alternate-reverse}
+
+  @keyframes anim{
+0%{clip:rect(59px,9999px,37px,0)}
+5%{clip:rect(37px,9999px,34px,0)}
+10%{clip:rect(44px,9999px,45px,0)}
+15.0%{clip:rect(64px,9999px,63px,0)}
+20%{clip:rect(77px,9999px,98px,0)}
+25%{clip:rect(10px,9999px,32px,0)}
+30.0%{clip:rect(61px,9999px,69px,0)}
+35%{clip:rect(25px,9999px,14px,0)}
+40%{clip:rect(0,9999px,33px,0)}
+45%{clip:rect(79px,9999px,12px,0)}
+50%{clip:rect(34px,9999px,1px,0)}
+55.0%{clip:rect(53px,9999px,28px,0)}
+60.0%{clip:rect(2px,9999px,49px,0)}
+65%{clip:rect(12px,9999px,10px,0)}
+70%{clip:rect(94px,9999px,93px,0)}
+75%{clip:rect(99px,9999px,20px,0)}
+80%{clip:rect(87px,9999px,66px,0)}
+85.0%{clip:rect(56px,9999px,76px,0)}
+90%{clip:rect(61px,9999px,27px,0)}
+95%{clip:rect(5px,9999px,12px,0)}
+100%{clip:rect(38px,9999px,50px,0)}
+}
+
+
+
+@-webkit-keyframes anim{
+0%{clip:rect(59px,9999px,37px,0)}
+5%{clip:rect(37px,9999px,34px,0)}
+10%{clip:rect(44px,9999px,45px,0)}
+15.0%{clip:rect(64px,9999px,63px,0)}
+20%{clip:rect(77px,9999px,98px,0)}
+25%{clip:rect(10px,9999px,32px,0)}
+30.0%{clip:rect(61px,9999px,69px,0)}
+35%{clip:rect(25px,9999px,14px,0)}
+40%{clip:rect(0,9999px,33px,0)}
+45%{clip:rect(79px,9999px,12px,0)}
+50%{clip:rect(34px,9999px,1px,0)}
+55.0%{clip:rect(53px,9999px,28px,0)}
+60.0%{clip:rect(2px,9999px,49px,0)}
+65%{clip:rect(12px,9999px,10px,0)}
+70%{clip:rect(94px,9999px,93px,0)}
+75%{clip:rect(99px,9999px,20px,0)}
+80%{clip:rect(87px,9999px,66px,0)}
+85.0%{clip:rect(56px,9999px,76px,0)}
+90%{clip:rect(61px,9999px,27px,0)}
+95%{clip:rect(5px,9999px,12px,0)}
+100%{clip:rect(38px,9999px,50px,0)}
+}
+
+@keyframes anim2{
+0%{clip:rect(40px,9999px,48px,0)}
+5%{clip:rect(61px,9999px,56px,0)}
+10%{clip:rect(31px,9999px,88px,0)}
+15.0%{clip:rect(96px,9999px,51px,0)}
+20%{clip:rect(72px,9999px,18px,0)}
+25%{clip:rect(60px,9999px,16px,0)}
+30.0%{clip:rect(6px,9999px,29px,0)}
+35%{clip:rect(95px,9999px,47px,0)}
+40%{clip:rect(96px,9999px,85px,0)}
+45%{clip:rect(69px,9999px,69px,0)}
+50%{clip:rect(5px,9999px,61px,0)}
+55.0%{clip:rect(29px,9999px,48px,0)}
+60.0%{clip:rect(41px,9999px,99px,0)}
+65%{clip:rect(86px,9999px,42px,0)}
+70%{clip:rect(7px,9999px,47px,0)}
+75%{clip:rect(17px,9999px,74px,0)}
+80%{clip:rect(86px,9999px,19px,0)}
+85.0%{clip:rect(23px,9999px,78px,0)}
+90%{clip:rect(71px,9999px,34px,0)}
+95%{clip:rect(32px,9999px,64px,0)}
+100%{clip:rect(77px,9999px,49px,0)}
+}
+
+@-webkit-keyframes anim2{
+0%{clip:rect(40px,9999px,48px,0)}
+5%{clip:rect(61px,9999px,56px,0)}
+10%{clip:rect(31px,9999px,88px,0)}
+15.0%{clip:rect(96px,9999px,51px,0)}
+20%{clip:rect(72px,9999px,18px,0)}
+25%{clip:rect(60px,9999px,16px,0)}
+30.0%{clip:rect(6px,9999px,29px,0)}
+35%{clip:rect(95px,9999px,47px,0)}
+40%{clip:rect(96px,9999px,85px,0)}
+45%{clip:rect(69px,9999px,69px,0)}
+50%{clip:rect(5px,9999px,61px,0)}
+55.0%{clip:rect(29px,9999px,48px,0)}
+60.0%{clip:rect(41px,9999px,99px,0)}
+65%{clip:rect(86px,9999px,42px,0)}
+70%{clip:rect(7px,9999px,47px,0)}
+75%{clip:rect(17px,9999px,74px,0)}
+80%{clip:rect(86px,9999px,19px,0)}
+85.0%{clip:rect(23px,9999px,78px,0)}
+90%{clip:rect(71px,9999px,34px,0)}
+95%{clip:rect(32px,9999px,64px,0)}
+100%{clip:rect(77px,9999px,49px,0)}
 }
