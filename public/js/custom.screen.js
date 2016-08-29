@@ -75,7 +75,7 @@ function screenreponsewrong(){
 
 function wrongdone(){
 
-   $('failSound')[0].play();
+   $('#failSound')[0].play();
 
    $("body").css("background-color",'#FF0000');
    $('.logo-escape-container').css("background-image", "url(../img/wrong.png)");
@@ -94,18 +94,20 @@ function welldone(){
 }
 
 function changePhase(){
-$("body").css("background-color","#e11937");
-  switch(phase) {
-      case 1:
-          phase2();
-          break;
-      case 2:
-          phase3();
-          break;
-      case 3:
-          phase4();
-          break;
-  }
+  $('#ambianceSound')[0].play();
+
+  $("body").css("background-color","#e11937");
+    switch(phase) {
+        case 1:
+            phase2();
+            break;
+        case 2:
+            phase3();
+            break;
+        case 3:
+            phase4();
+            break;
+    }
 
 }
 
@@ -127,13 +129,13 @@ function waitingresponse(data){
       if(data.step < 4){
 
         timeAction = setTimeout(function(){
-          stopHeartAndStartAmbianceSound();
+          stopHeart();
           screenreponsewrong();
         },5000);
 
       }else{
          timeAction = setTimeout(function(){
-          stopHeartAndStartAmbianceSound();
+          stopHeart();
           explosion();          
         }
         ,5000);
@@ -141,13 +143,13 @@ function waitingresponse(data){
     }else{
         if(data.step < 4){
           timeAction = setTimeout(function(){
-            $("#heartSound")[0].pause();
-            screenreponsegood();
+           stopHeart();
+           screenreponsegood();
           }
           ,5000);
         }else{
           timeAction = setTimeout(function(){
-            $("#heartSound")[0].pause();
+            stopHeart();
             secureDesactive();
           }
           ,5000);
@@ -157,10 +159,8 @@ function waitingresponse(data){
   
 }
 
-function stopHeartAndStartAmbianceSound(){
+function stopHeart(){
     $("#heartSound")[0].pause();
-    $('#ambianceSound')[0].play();
-    $('#ambianceSound')[0].loop = true;
 }
 
 function addparticle(){
@@ -231,6 +231,7 @@ function lastAction(){
   $('#securityAlertSound')[0].pause();
   $('#ambianceSound')[0].play();
   $('#ambianceSound')[0].loop = true;
+
   $("body").css("background-color","#a01937");
   $('#txtparasite').hide();
  
@@ -297,8 +298,7 @@ function phase4(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Sécurité active 4/5</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-  //TODO CHANGE SecureDesactive => CheckSecurity
-  //timeAction = setTimeout(secureDesactive,2000);
+
 }
 
 function secureDesactive(){
