@@ -274,17 +274,7 @@ function explosion(){
   $("#txtparasite").attr("data-text", "System Failure");
   $('#txtparasite').html("Désoler, bombe explosée !");
   $('#txtparasite').show();
-  
-  // $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
-  // $('.logo-escape-container').css('opacity', '0');
-  // $('#container-bas-secu-id').addClass("shake");
-  // $('#container-bas-secu-id').html('<h1>Système en cours de destruction</h1>');
-  // $('#container-bas-secu-id').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-  //   function(){
-  //     console.log("animation ended")
-  //     $('#container-bas-secu').removeClass("shake");
-  //   }
-  // );
+
   stopTimer();
 }
 
@@ -339,8 +329,7 @@ function toggleFullScreen() {
 }
 
 function startCSSBombAnimation(){
-    $('#particles').hide();    
-    $('body').show();
+    $('#particles').show();        
 }
 
 function stoppedCSSBombAnimation() {
