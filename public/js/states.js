@@ -33,9 +33,9 @@ $(document).ready(function() {
 });
 
 
-function startAnimation(){
+function stopAnimation(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestartanimation",
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestopanimation",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 

@@ -20,6 +20,11 @@ $(document).ready(function() {
 
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
 
+
+  socket.on('stopBombAnimation', function(){
+    location.reload(); //reloading to be in waiting state
+  });
+
   socket.on('startBombAnimation', function(){
     console.log('startCSSBombAnimation');
     //restoring the css
