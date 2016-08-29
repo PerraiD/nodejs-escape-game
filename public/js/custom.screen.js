@@ -21,6 +21,7 @@ $(document).ready(function() {
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
 
   socket.on('startBombAnimation', function(){
+    console.log('startCSSBombAnimation');
     //restoring the css
     startCSSBombAnimation();
 
