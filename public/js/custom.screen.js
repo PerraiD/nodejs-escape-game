@@ -16,14 +16,23 @@ $(document).ready(function() {
   });
 
    
-  endTimeBomb = addMinutes(Date.parse(new Date()),10);
-  var tid = setInterval(getTimeRemaining, 33);
- // launchTimer(endTimeBomb);
-  $('.container-bas-secu').html('');
-  $('.logo-escape-container').hide();
-  rundelay();
+  stoppedCSSBombAnimation();
 
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
+
+  socket.on('startBombAnimation', function(){
+    //restoring the css
+    startCSSBombAnimation();
+
+    endTimeBomb = addMinutes(Date.parse(new Date()),10);
+    var tid = setInterval(getTimeRemaining, 33);
+    
+    $('.container-bas-secu').html('');
+    $('.logo-escape-container').hide();
+    
+    rundelay();
+  })
+
   socket.on('messageescape', function (data)
   {
     var obj = JSON.parse(data);
@@ -187,7 +196,7 @@ function lastAction(){
 
 
 function stopTimer()
-	   {
+{
 
 			$.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestoptimer",
@@ -202,7 +211,7 @@ function stopTimer()
 }; 
 
 function startTimer()
-	   {
+{
 
 			$.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestarttimer",
@@ -327,4 +336,16 @@ function toggleFullScreen() {
   else {
     cancelFullScreen.call(doc);
   }
+}
+
+function startCSSBombAnimation(){
+    $('#particles').hide();    
+    $('body').show();
+}
+
+function stoppedCSSBombAnimation() {
+    //black screen setting
+    $('#particles').hide();    
+    $('body').css('background','black');
+
 }

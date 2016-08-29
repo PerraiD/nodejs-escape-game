@@ -33,3 +33,16 @@ $(document).ready(function() {
 });
 
 
+function startAnimation(){
+  	$.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestartanimation",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	  console.log("Animation launched");      
+         }
+			});
+        
+}
+
+

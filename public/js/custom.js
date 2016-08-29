@@ -63,6 +63,7 @@ $(document).ready(function() {
         endTimeBomb = Date.parse(data);
         tid = setInterval(getTimeRemaining, 33);        
     }else{
+      CSSstopTimer();
       setTimerToNull();
     }
 
