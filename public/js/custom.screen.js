@@ -94,6 +94,7 @@ function welldone(){
 }
 
 function changePhase(){
+  $('#failSound')[0].pause();
   $('#ambianceSound')[0].play();
 
   $("body").css("background-color","#e11937");
@@ -120,7 +121,7 @@ function waitingresponse(data){
 
   if(data.fatal){
       timeAction = setTimeout(function(){
-          stopHeartAndStartAmbianceSound()
+          stopHeart()
           explosion();          
       }
       ,5000);
@@ -302,6 +303,9 @@ function phase4(){
 }
 
 function secureDesactive(){
+  
+  $('#successSound')[0].play();
+ 
   $("body").css("background-color","#228B22");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
