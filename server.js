@@ -147,7 +147,7 @@ var SampleApp = function()
         self.routes['/api/wsescapestartanimation'] = function(req,res){
              endtime = 'none';
              self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
-             self.io.sockets.emit('stopBombAnimation');
+             self.io.sockets.emit('startBombAnimation');
              res.send("animation started");
         }
 
