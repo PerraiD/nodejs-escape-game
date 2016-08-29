@@ -47,7 +47,7 @@ function stopAnimation(){
 
 function startAnimation(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestopanimation",
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestartanimation",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
