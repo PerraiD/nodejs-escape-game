@@ -203,9 +203,11 @@ var SampleApp = function()
                     var pinId = parseInt(req.params.id);
 
                     if(pinId === 24){
+                        
                         endtime = 'none';
                         self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
                         self.io.sockets.emit('startBombAnimation');
+
                     }else{
                          var message={
                             id: pinId,

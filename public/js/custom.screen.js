@@ -30,7 +30,7 @@ $(document).ready(function() {
     
     $('#introductionAlertSound')[0].pause();
     //restoring the css
-    startCSSBombAnimation();
+    //startCSSBombAnimation();
 
 
     endTimeBomb = addMinutes(Date.parse(new Date()),10);
