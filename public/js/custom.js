@@ -149,7 +149,9 @@ function getTimeRemaining(){
       seconds = '0'+seconds;
     }
     if(seconds !== currentSecond){
-      $('#lowBtmSound')[0].play();        
+      $('#lowBtmSound')[0].load();
+      $('#lowBtmSound')[0].play();
+      console.log(seconds);              
       currentSecond = seconds;
     }
     var minutes = Math.floor((t/speed/60) % 60);
