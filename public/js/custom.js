@@ -65,9 +65,8 @@ $(document).ready(function() {
           clearInterval(tid); 
         }
         endTimeBomb = Date.parse(data);
-        tid = setInterval(getTimeRemaining, 33);
-        $('#lowBtmSound')[0].play();
-        $('#lowBtmSound')[0].loop = true;
+        tid = setInterval(getTimeRemaining, 25);
+       
 
     }else{     
       CSSstopTimer();
@@ -133,11 +132,9 @@ function screenReussi(){
   
 }
 
-
+var currentSecond=0;
 function getTimeRemaining(){
  
-
-  
   var t = endTimeBomb - Date.now();
 
 
@@ -150,6 +147,10 @@ function getTimeRemaining(){
     var seconds = Math.floor( (t/speed) % 60 );
     if (seconds < 10){
       seconds = '0'+seconds;
+    }
+    if(seconds !== currentSecond){
+      $('#lowBtmSound')[0].play();        
+      currentSecond = seconds;
     }
     var minutes = Math.floor((t/speed/60) % 60);
     if(speed != 1000){
