@@ -63,6 +63,9 @@
     font-weight: bold;
 }
 
+.borderless{
+    width: 100%;
+}
 .borderless tbody tr td{
     border: none;
 }
