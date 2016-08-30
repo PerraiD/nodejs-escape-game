@@ -14,10 +14,9 @@ $(document).ready(function() {
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
   });
-   //$('#ambianceSound')[0].play();
-   //$('#ambianceSound')[0].loop = true;
 
-   $('.logo-escape-container').css('height','0%');
+  $('.logo-escape-container').css('height','0%'); 
+  runFistDelay();
 
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
 
@@ -29,15 +28,18 @@ $(document).ready(function() {
   socket.on('startBombAnimation', function(){    
 
     
-    $('#ambianceSound')[0].pause();
+    $('#introductionAlertSound')[0].pause();
+    //restoring the css
+    startCSSBombAnimation();
 
 
     endTimeBomb = addMinutes(Date.parse(new Date()),10);
     var tid = setInterval(getTimeRemaining, 33);
     
+    $('.container-bas-secu').html('');
     $('.logo-escape-container').hide();
     
-    rundelay();
+    runSecondDelay();
   })
 
   socket.on('messageescape', function (data)
@@ -46,6 +48,7 @@ $(document).ready(function() {
     waitingresponse(obj);
     phase = obj.step;
     console.log(obj.step);
+    
 
   });
 
@@ -113,7 +116,7 @@ function changePhase(){
 }
 
 function waitingresponse(data){
-  
+
   $(".logo-escape-container").addClass('heart');
   $('#ambianceSound')[0].pause();
   
@@ -175,33 +178,60 @@ function addparticle(){
 
 }
 
-function rundelay(){
+function runFistDelay(){
   
   console.log('run');
+  $('#container-bas-secu-id').hide();
   $('#introductionAlertSound')[0].play();  
 
   timeAction = setTimeout(firstAction,3000);
 }
 
+function runSecondDelay(){
+  
+  console.log('run');
+  timeAction = setTimeout(fourAction,3000);
+}
+
 
 function firstAction(){
+ 
+ $('#txtparasite').html('DANS');
+ $("#txtparasite").attr("data-text", "DANS");
+  timeAction = setTimeout(secondAction,3000);
+}
+
+function secondAction(){
+ $("#txtparasite").attr("data-text", "L'IOT ROOM");
+ $('#txtparasite').html("L'IOT ROOM");
+ timeAction = setTimeout(thirdAction,3000);
+}
+
+function thirdAction(){
+ $('#txtparasite').html("DANGER");
+ $('#container-bas-secu-id').show();
+}
+
+
+function fourAction(){
+  //déclanchement du son parasite
  $("body").css("background-color","#151515");
   
  $("#txtparasite").removeClass('parasite');
  $("#txtparasite").addClass('parasiteb');
  $("#txtparasite").attr("data-text", "ERROR");
  $('#txtparasite').html("ERROR 0x52170624");
- timeAction = setTimeout(secondAction,2000);
+ timeAction = setTimeout(fiveAction,2000);
 }
 
-function secondAction(){
+function fiveAction(){
 
  $("#txtparasite").attr("data-text", "ERROR");
  $('#txtparasite').html("INTRUSION DETECTÉE");
- timeAction = setTimeout(thirdAction,2000);
+ timeAction = setTimeout(sixAction,2000);
 }
 
-function thirdAction(){
+function sixAction(){
  addparticle();
  $("#txtparasite").removeClass('parasiteb');
  $("#txtparasite").attr("data-text", "ERROR");
@@ -253,7 +283,7 @@ function startTimer()
 }; 
 
 function phase1(){
-  $('logo-escape-container').css('height','100%');
+  $('.logo-escape-container').css('height','100%'); 
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-1.png)"); 
   $('.container-bas-secu').html('<p>Sécurité active 1/4</p>');
   $(".logo-escape-container" ).fadeTo( 1500 , 1, function() {});
@@ -358,6 +388,20 @@ function toggleFullScreen() {
   else {
     cancelFullScreen.call(doc);
   }
+}
+
+function startCSSBombAnimation(){
+
+    $("body").css("background","rgba(160, 25, 55, 1)");
+
+    $('#txtparasite').removeClass('parasite');
+    $('#txtparasite').removeClass('parasiteb');
+    $('#txtparasite').removeClass('parasitec');
+    $('#txtparasite').html('BIENVENUE');      
+    $('#txtparasite').show();
+
+    //$('#particles').show();
+        
 }
 
 function stoppedCSSBombAnimation() {

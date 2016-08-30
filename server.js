@@ -150,6 +150,7 @@ var SampleApp = function()
         self.routes['/api/wsescapestartanimation'] = function(req,res){
              self.LastStep = 0;
              self.userErrors = 0;
+
              endtime = 'none';
              self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
              self.io.sockets.emit('startBombAnimation');
@@ -188,82 +189,91 @@ var SampleApp = function()
 
         self.routes['/api/wsescape/:id'] = function (req, res)
         {
-              
-                    d = new Date();
-                    var formatminute = d.getMinutes();
-                    if(formatminute< 10){
-                        formatminute = "0"+formatminute;
-                    }
-                    var formathour = d.getHours();
-                    formathour = formathour+6;
-                    var  formatTime = formathour+" h "+formatminute+" et "+d.getSeconds()+" secondes"
 
+                    // d = new Date();
+                    // var formatminute = d.getMinutes();
+                    // if(formatminute< 10){
+                    //     formatminute = "0"+formatminute;
+                    // }
+                    // var formathour = d.getHours();
+                    // formathour = formathour+6;
+                    // var  formatTime = formathour+" h "+formatminute+" et "+d.getSeconds()+" secondes"
 
+                    
                     var pinId = parseInt(req.params.id);
-                                         
-                    var message={
-                        id: pinId,
-                        step : 0,
-                        userErrors: self.userErrors,
-                        validate : false,
-                        fatal : false
-                    }
 
-                    /** control for fatal step like cutting a pin in a bad step */
-                    if( (pinId > 31 && self.LastStep === 0) 
-                        || (pinId > 37 && self.LastStep === 1) 
-                        || (pinId > 43 && self.LastStep === 2)                         
-                     )
-                     {
-                         self.LastStep = 0;
-                         message.fatal = true;
-                     }
+                    if(pinId === 24){
+                        endtime = 'none';
+                        self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
+                        self.io.sockets.emit('startBombAnimation');
+                    }else{
+                         var message={
+                            id: pinId,
+                            step : 0,
+                            userErrors: self.userErrors,
+                            validate : false,
+                            fatal : false
+                        }
 
-                    /** control for step 1 pin 30 31 */
-                    if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
-                        self.LastStep = 1;
-                        if(pinId === 31){ //good cuted pin                             
-                            message.validate = true;
+                        /** control for fatal step like cutting a pin in a bad step */
+                        if( (pinId > 31 && self.LastStep === 0) 
+                            || (pinId > 37 && self.LastStep === 1) 
+                            || (pinId > 43 && self.LastStep === 2)                         
+                        )
+                        {
+                            self.LastStep = 0;
+                            message.fatal = true;
                         }
-                        message.step = self.LastStep;
-                    }   
 
-                    /** control for step 2 pin 36 37 */
-                    if((pinId === 36 || pinId === 37) && self.LastStep < 2) {
-                        self.LastStep = 2;
-                        if(pinId === 36){
-                             message.validate = true;
+                        /** control for step 1 pin 30 31 */
+                        if((pinId === 30 || pinId === 31) && self.LastStep < 1) {
+                            self.LastStep = 1;
+                            if(pinId === 31){ //good cuted pin                             
+                                message.validate = true;
+                            }
+                            message.step = self.LastStep;
+                        }   
+
+                        /** control for step 2 pin 36 37 */
+                        if((pinId === 36 || pinId === 37) && self.LastStep < 2) {
+                            self.LastStep = 2;
+                            if(pinId === 36){
+                                message.validate = true;
+                            }
+                            message.step = self.LastStep;
                         }
-                        message.step = self.LastStep;
-                    }
-                    /** control for step 3 pin  42 43*/
-                    if((pinId === 42 || pinId === 43) && self.LastStep < 3) {
-                        self.LastStep = 3;
-                        if(pinId === 42){
-                             message.validate = true;
+                        /** control for step 3 pin  42 43*/
+                        if((pinId === 42 || pinId === 43) && self.LastStep < 3) {
+                            self.LastStep = 3;
+                            if(pinId === 42){
+                                message.validate = true;
+                            }
+                            message.step = self.LastStep;
                         }
-                        message.step = self.LastStep;
-                    }
-                    /** control for step 4 pin 48 49 */
-                     if((pinId === 48 || pinId === 49 ) && self.LastStep < 4) {
-                        self.LastStep = 4;
-                        if(pinId === 49){
-                            message.validate = true;
+                        /** control for step 4 pin 48 49 */
+                        if((pinId === 48 || pinId === 49 ) && self.LastStep < 4) {
+                            self.LastStep = 4;
+                            if(pinId === 49){
+                                message.validate = true;
+                            }
+                            message.step = self.LastStep;
                         }
-                        message.step = self.LastStep;
-                    }
+                    
+                        if(!message.validate) {
+                            self.userErrors++;
+                            message.userErrors = self.userErrors;
+                        }
+
+                        if(self.LastStep === 4 || message.fatal){
+                            self.userErrors = 0;
+                            self.LastStep = 0;
+                        }
+
+                        self.io.sockets.emit('messageescape', JSON.stringify(message));
+                    } 
+
+
                    
-                    if(!message.validate) {
-                        self.userErrors++;
-                        message.userErrors = self.userErrors;
-                    }
-
-                    if(self.LastStep === 4 || message.fatal){
-                        self.userErrors = 0;
-                        self.LastStep = 0;
-                    }
-
-                    self.io.sockets.emit('messageescape', JSON.stringify(message));
                     res.send("messageescape id : "+req.params.id+" bien envoyé");
                
         };
