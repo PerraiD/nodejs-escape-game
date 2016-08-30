@@ -1,6 +1,6 @@
 /**
- * Particleground demo
- * @author Jonathan Nicol - @mrjnicol
+ * escapeGame IOT demo
+ * @author Charles GALLARD, David PERRAI 
  */
 var endTimeBomb = null;
 var timeAction;
@@ -25,7 +25,8 @@ $(document).ready(function() {
     location.reload(); //reloading to be in waiting state
   });
 
-  socket.on('startBombAnimation', function(){
+  socket.on('startBombAnimation', function(){    
+
     console.log('startCSSBombAnimation');
     //restoring the css
     startCSSBombAnimation();
@@ -177,6 +178,8 @@ function addparticle(){
 function rundelay(){
   
   console.log('run');
+  $('#introductionAlertSound')[0].play();  
+
   timeAction = setTimeout(firstAction,3000);
 }
 
@@ -213,7 +216,7 @@ function fourAction(){
 }
 
 function fiveAction(){
- $('#securityAlertSound')[0].play();   
+
  $("#txtparasite").attr("data-text", "ERROR");
  $('#txtparasite').html("INTRUSION DETECTÉE");
  timeAction = setTimeout(sixAction,2000);
@@ -228,8 +231,7 @@ function sixAction(){
 }
 
 function lastAction(){
-  
-  $('#securityAlertSound')[0].pause();
+  $('#introductionAlertSound')[0].pause();
   $('#ambianceSound')[0].play();
   $('#ambianceSound')[0].loop = true;
 
@@ -380,7 +382,12 @@ function toggleFullScreen() {
 
 function startCSSBombAnimation(){
     $("body").css("background","rgba(160, 25, 55, 1)");
-    $('#particles').show();        
+    $('#txtparasite').removeClass('parasite');
+    $('#txtparasite').removeClass('parasiteb');
+    $('#txtparasite').removeClass('parasitec');
+    $('#txtparasite').html('BIENVENUE');      
+    $('#particles').show();
+        
 }
 
 function stoppedCSSBombAnimation() {

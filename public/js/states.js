@@ -1,6 +1,6 @@
 /**
  * escapeGame IOT demo
- * @author Charles GALLARD 
+ * @author Charles GALLARD, David PERRAI 
  */
 
 var socket = null;
