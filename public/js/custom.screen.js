@@ -308,7 +308,7 @@ function phase4(){
 
 function secureDesactive(){
   
-  $('#successSound')[0].play();
+  $('#shutdownSound')[0].play();
  
   $("body").css("background-color","#228B22");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
