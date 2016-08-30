@@ -138,6 +138,9 @@ var SampleApp = function()
         }
 
         self.routes['/api/wsescapestopanimation'] = function(req,res){
+             self.LastStep = 0;
+             self.userErrors = 0;
+
              endtime = 'none';
              self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
              self.io.sockets.emit('stopBombAnimation');
@@ -145,6 +148,8 @@ var SampleApp = function()
         }
 
         self.routes['/api/wsescapestartanimation'] = function(req,res){
+             self.LastStep = 0;
+             self.userErrors = 0;
              endtime = 'none';
              self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
              self.io.sockets.emit('startBombAnimation');
@@ -179,7 +184,8 @@ var SampleApp = function()
            self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
            res.status(200).send(req.body);
 
-        }
+        }        
+
         self.routes['/api/wsescape/:id'] = function (req, res)
         {
               
