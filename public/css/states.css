@@ -1,54 +1,70 @@
-.badge-30{
-    margin-right: 1%;     
-    height: 100%;
-    font-size: 2vh;
+.badge-30{  
+    
+    border: solid 1px black;
+    margin: 0.5%;     
     background-color: #3366ff;
 }
 .badge-31{
-    height: 100%;
-    font-size: 2vh;
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:#009933;
 }
 .badge-36{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:Black;
 }
 .badge-37{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:#996633;
 }
 .badge-42{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:#ff9933;
 }
 .badge-43{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:#cc99ff; 
 }
 .badge-48{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:Yellow;
     color:black;
 }
 .badge-49{
-    height: 100%;
-    font-size: 2vh;
+
+    border: solid 1px black;
+    margin: 0.5%;
     background-color:white;
     color:black;
 }
 
-.badge{
-    border: solid 1px black;
-}
 
 .badge-state{
-    text-align : left;
+    color: white;
+    font-size: 2vh !important;
+    text-align : center;
     font-weight: bold;
+    margin: 1%; 
+}
+
+.badge-state-cross{
+    font-size: 2vh !important;
+    text-align : center;
+    font-weight: bold;
+}
+
+.borderless tbody tr td{
+    border: none;
 }
 
 .restartButton {

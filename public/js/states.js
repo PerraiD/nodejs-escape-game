@@ -53,8 +53,17 @@ function startAnimation(){
 				 success: function() { 
 				 	  console.log("Animation launched");      
          }
-			});
-        
+			});        
 }
 
+function debug(id){
+    $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescape/"+id,
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	  console.log("debug of the pin id"+id);      
+         }
+			});     
+}
 

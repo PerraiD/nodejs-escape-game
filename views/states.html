@@ -56,59 +56,65 @@
 
     <!-- Page Content -->
     <div class="container-fluid">
-        <div class="row badge-state">
-            <div class="col-xs-1">
-                <span class="badge badge-30">
-                    30
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-31">
-                    31
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-36">
-                    36
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-37">
-                    37
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-42">
-                    42
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-43">
-                    43
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-48">
-                    48
-                </span>
-            </div>
-            <div class="col-xs-1">
-                <span class="badge badge-49">
-                    49
-                </span>
-            </div>
-        </div>
-        <div class="row badge-state">
-            <div id="badge-30" class="col-xs-1">X</div>
-            <div id="badge-31" class="col-xs-1">X</div>
-            <div id="badge-36" class="col-xs-1">X</div>
-            <div id="badge-37" class="col-xs-1">X</div>
-            <div id="badge-42" class="col-xs-1">X</div>
-            <div id="badge-43" class="col-xs-1">X</div>
-            <div id="badge-48" class="col-xs-1">X</div>
-            <div id="badge-49" class="col-xs-1">X</div>
-        </div>
 
+    <table class="borderless">
+        <tbody>
+            <tr class="badge-state">
+                <td>
+                    <span class="badge badge-30" onclick="debug(30)">
+                        30
+                    </span>
+                </td>
+                <td> 
+                    <span class="badge badge-31" onclick="debug(31)">
+                        31
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-36" onclick="debug(36)">
+                        36
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-37" onclick="debug(37)">
+                        37
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-42" onclick="debug(42)">
+                        42
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-43" onclick="debug(43)">
+                        43
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-48" onclick="debug(48)">
+                        48
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-49" onclick="debug(49)">
+                        49
+                    </span>
+                </td>
+            </tr>
+            <tr class="badge-state-cross">
+                <td id="badge-30">X</td>
+                <td id="badge-31">X</td>
+                <td id="badge-36">X</td>
+                <td id="badge-37">X</td>
+                <td id="badge-42">X</td>
+                <td id="badge-43">X</td>
+                <td id="badge-48">X</td>
+                <td id="badge-49">X</td>
+            </tr>
+        </tbody>
+    </table>   
+
+        
         <button  type="button" class="btn btn-success btn-block restartButton" onclick="stopAnimation()">
             Reboot screens animations
         </button>
@@ -219,4 +225,19 @@
 
 </body>
 
+
+
+
 </html>
+
+
+
+
+            
+                
+                                    
+                
+                
+                
+                
+            
