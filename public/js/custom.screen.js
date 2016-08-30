@@ -28,8 +28,10 @@ $(document).ready(function() {
   socket.on('startBombAnimation', function(){    
 
     console.log('startCSSBombAnimation');
+    $('#ambianceSound')[0].pause();
     //restoring the css
     startCSSBombAnimation();
+
 
     endTimeBomb = addMinutes(Date.parse(new Date()),10);
     var tid = setInterval(getTimeRemaining, 33);
@@ -382,7 +384,7 @@ function toggleFullScreen() {
 
 function startCSSBombAnimation(){
     $("body").css("background","rgba(160, 25, 55, 1)");
-    
+
     $('#txtparasite').removeClass('parasite');
     $('#txtparasite').removeClass('parasiteb');
     $('#txtparasite').removeClass('parasitec');
