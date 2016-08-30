@@ -120,6 +120,7 @@ function waitingresponse(data){
   $(".logo-escape-container").addClass('heart');
   $('#ambianceSound')[0].pause();
   
+  
   $("#heartSound")[0].play();
 
   if(data.fatal){
@@ -164,7 +165,7 @@ function waitingresponse(data){
 }
 
 function stopHeart(){
-    $("#heartSound")[0].pause();
+   $("#heartSound")[0].load(); //reloading sound
 }
 
 function addparticle(){
@@ -277,7 +278,7 @@ function startTimer()
 
 function phase1(){
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-1.png)"); 
-  $('.container-bas-secu').html('<p>Sécurité active 1/5</p>');
+  $('.container-bas-secu').html('<p>Sécurité active 1/4</p>');
   $(".logo-escape-container" ).fadeTo( 1500 , 1, function() {});
 
 }
@@ -285,7 +286,7 @@ function phase1(){
 function phase2(){
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-2.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Sécurité active 2/5</p>');
+  $('.container-bas-secu').html('<p>Sécurité active 2/4</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
 
 }
@@ -293,7 +294,7 @@ function phase2(){
 function phase3(){
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-3.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Sécurité active 3/5</p>');
+  $('.container-bas-secu').html('<p>Sécurité active 3/4</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
 
 }
@@ -301,7 +302,7 @@ function phase3(){
 function phase4(){
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-4.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Sécurité active 4/5</p>');
+  $('.container-bas-secu').html('<p>Sécurité active 4/4</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
 
 }
