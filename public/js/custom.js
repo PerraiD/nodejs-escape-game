@@ -33,10 +33,7 @@ $(document).ready(function() {
     if(!obj.validate && !obj.fatal){
        switch (obj.userErrors) {
          case 1:
-           speed = 500;
-           $('#lowBtmSound')[0].pause();
-           $('#highBtmSound')[0].play();
-           $('#highBtmSound')[0].loop = true;
+           speed = 500;                    
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
