@@ -326,7 +326,7 @@ function phase4(){
 }
 
 function secureDesactive(){
-  
+  $('#ambianceSound')[0].pause();
   $('#shutdownSound')[0].play();
  
   $("body").css("background-color","#228B22");
@@ -338,7 +338,8 @@ function secureDesactive(){
 }
 
 function explosion(){
-
+  
+  $('#ambianceSound')[0].pause();
   $('#explosionSound')[0].play();
 
   $('.container-bas-secu').html('<p></p>');
