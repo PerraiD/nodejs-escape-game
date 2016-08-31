@@ -70,10 +70,8 @@ $(document).ready(function() {
   socket.on('stopfail' , function(){
       $('#lowBtmSound')[0].pause();
       $('#highBtmSound')[0].pause();
-      
-      $('.time-minutes').html('--');
-      $('.time-seconds-texte').html('--');
-      $('.time-milliseconds').html('--');
+
+      setTimerToNull();
 
   });
 
@@ -174,8 +172,7 @@ function getTimeRemaining(){
     }
     if(seconds !== currentSecond){
       $('#lowBtmSound')[0].load();
-      $('#lowBtmSound')[0].play();
-      console.log(seconds);              
+      $('#lowBtmSound')[0].play();            
       currentSecond = seconds;
     }
     var minutes = Math.floor((t/speed/60) % 60);
