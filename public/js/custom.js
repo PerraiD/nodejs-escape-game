@@ -62,7 +62,7 @@ $(document).ready(function() {
       $('#highBtmSound')[0].pause();
       $("body").css("background","#228B22");
       $('.container-timer').html('');
-      $('.container-timer').html('<h1>Desactivated</h1>');
+      $('.container-timer').html('<h1>Desarmed</h1>');
      
 
   });
@@ -104,9 +104,9 @@ function setTimerToNull(){
       $('#lowBtmSound')[0].pause();
       $('#highBtmSound')[0].pause();
       clearInterval(tid);
-      $('.time-minutes').html('--');
-      $('.time-seconds-texte').html('--');
-      $('.time-milliseconds').html('--');
+      $('.time-minutes').html('00');
+      $('.time-seconds-texte').html('00');
+      $('.time-milliseconds').html('00');
       hidingNumber = false;
      
 }
