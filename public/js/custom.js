@@ -188,6 +188,7 @@ function getTimeRemaining(){
     if (minutes < 10){
         minutes = '0'+minutes;
     }
+    console.log(minutes);
     if(!hidingNumber){
       $('.time-minutes').html(minutes);
       $('.time-seconds-texte').html(seconds);
@@ -200,7 +201,7 @@ function getTimeRemaining(){
     
 
   }else{
-
+    console.log('time ended');
     $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
 				dataType: 'html',
