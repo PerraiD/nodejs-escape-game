@@ -249,7 +249,6 @@ function sixAction(){
 
 function lastAction(){
   stateReady = true; // we can start receiving pin messages 
-  $('#introductionAlertSound')[0].pause();
   $('#ambianceSound')[0].play();
   $('#ambianceSound')[0].loop = true;
 
