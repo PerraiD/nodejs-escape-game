@@ -56,7 +56,10 @@ $(document).ready(function() {
     if(stateReady){
         var obj = JSON.parse(data);
         waitingresponse(obj);
-        phase = obj.step;
+        if(obj.step >= phase){
+           phase = obj.step;
+        }
+        console.log(phase);       
         console.log(obj.step);
     }
   });
