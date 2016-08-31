@@ -73,3 +73,15 @@
 .restartButton {
     margin-top: 5% !important;
 }
+
+.malette{
+  margin-top: 2%;
+  height: 100%;
+  width: 100%;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.malette-txt{
+  margin-right: 10%;
+}
