@@ -224,8 +224,8 @@ var SampleApp = function()
 
                         /** control for fatal step like cutting a pin in a bad step */
                         if( (pinId > 31 && self.LastStep === 0) 
-                            || (pinId > 37 && self.LastStep === 1) 
-                            || (pinId > 43 && self.LastStep === 2)){
+                            || (pinId > 37 && self.LastStep <= 1) 
+                            || (pinId > 43 && self.LastStep <= 2)){
                             
                             self.LastStep = 0;
                             message.fatal = true;
@@ -236,6 +236,8 @@ var SampleApp = function()
                             self.LastStep = 1;
                             if(pinId === 31){ //good cuted pin                             
                                 message.validate = true;
+                            }else{
+                                self.incrementeUserError();
                             }
                             message.step = self.LastStep;
                         }   
@@ -245,6 +247,8 @@ var SampleApp = function()
                             self.LastStep = 2;
                             if(pinId === 36){
                                 message.validate = true;
+                            }else{
+                                self.incrementeUserError();
                             }
                             message.step = self.LastStep;
                         }
@@ -253,6 +257,8 @@ var SampleApp = function()
                             self.LastStep = 3;
                             if(pinId === 42){
                                 message.validate = true;
+                            }else{
+                                self.incrementeUserError();
                             }
                             message.step = self.LastStep;
                         }
@@ -261,13 +267,10 @@ var SampleApp = function()
                             self.LastStep = 4;
                             if(pinId === 49){
                                 message.validate = true;
+                            }else{
+                                self.incrementeUserError();
                             }
                             message.step = self.LastStep;
-                        }
-                    
-                        if(!message.validate) {
-                            self.userErrors++;
-                            message.userErrors = self.userErrors;
                         }
 
                         if(self.LastStep === 4 || message.fatal){
@@ -284,7 +287,10 @@ var SampleApp = function()
         };
 
 
-
+        self.incrementeUserError = function(){
+             self.userErrors++;
+             message.userErrors = self.userErrors;
+        }
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
