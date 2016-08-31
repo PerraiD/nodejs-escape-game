@@ -56,6 +56,17 @@ function startAnimation(){
 			});        
 }
 
+function welcomeAnimation(){
+  	$.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapewelcomeanimation",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	  console.log("Animation launched");      
+         }
+			});        
+}
+
 function debug(id){
     $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescape/"+id,

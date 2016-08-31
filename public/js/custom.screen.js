@@ -15,8 +15,7 @@ $(document).ready(function() {
     'margin-top': -($('.intro').height() / 2)
   });
 
-  $('.logo-escape-container').css('height','0%'); 
-  runFistDelay();
+  stoppedCSSBombAnimation();
 
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
 
@@ -24,13 +23,19 @@ $(document).ready(function() {
   socket.on('stopBombAnimation', function(){
     location.reload(); //reloading to be in waiting state
   });
+  
+
+  socket.on('welcomeBombAnimation',function() {
+    //launching welcomesound;
+    
+    startCSSBombAnimation();
+    $('.logo-escape-container').css('height','0%'); 
+    runFistDelay();
+  });
 
   socket.on('startBombAnimation', function(){    
-
-    
+ 
     $('#introductionAlertSound')[0].pause();
-    //restoring the css
-    //startCSSBombAnimation();
 
 
     endTimeBomb = addMinutes(Date.parse(new Date()),10);
@@ -400,7 +405,7 @@ function startCSSBombAnimation(){
     $('#txtparasite').html('BIENVENUE');      
     $('#txtparasite').show();
 
-    //$('#particles').show();
+    $('#particles').show();
         
 }
 

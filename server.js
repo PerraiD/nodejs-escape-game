@@ -147,6 +147,11 @@ var SampleApp = function()
              res.send("animation stopped");
         }
 
+        self.routes['/api/wescapewelcomeanimation'] = function(req,res){
+            self.io.sockets.emit('welcomeBombAnimation');
+            res.send("welcome animation launched");
+        }
+
         self.routes['/api/wsescapestartanimation'] = function(req,res){
              self.LastStep = 0;
              self.userErrors = 0;
@@ -203,7 +208,7 @@ var SampleApp = function()
                     var pinId = parseInt(req.params.id);
 
                     if(pinId === 24){
-                        
+
                         endtime = 'none';
                         self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
                         self.io.sockets.emit('startBombAnimation');
