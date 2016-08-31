@@ -159,8 +159,10 @@ function getTimeRemaining(){
  
   var t = endTimeBomb - Date.now();
 
+  console.log(t);
 
   var milliseconds = Math.floor( (t) % 60 );
+    console.log(milliseconds);
   if(milliseconds > -1 || (Math.floor( (t/speed) % 60 ) == 0)){
     
     if (milliseconds < 10){
