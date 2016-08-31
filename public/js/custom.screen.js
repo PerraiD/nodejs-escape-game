@@ -6,6 +6,7 @@ var endTimeBomb = null;
 var timeAction;
 var socket = null;
 var phase = 1;
+var stateReady = false;
 
 $(document).ready(function() {
   
@@ -27,15 +28,18 @@ $(document).ready(function() {
 
   socket.on('welcomeBombAnimation',function() {
     //launching welcomesound;
-    
+    $('#introductionSound')[0].loop = true;
+    $('#introductionSound')[0].play();
+
     startCSSBombAnimation();
     $('.logo-escape-container').css('height','0%'); 
     runFistDelay();
   });
 
-  socket.on('startBombAnimation', function(){    
- 
-    $('#introductionAlertSound')[0].pause();
+  socket.on('startBombAnimation', function(){ 
+
+    $('#introductionSound')[0].pause();
+    $('#alertSound')[0].play();
 
 
     endTimeBomb = addMinutes(Date.parse(new Date()),10);
@@ -49,12 +53,12 @@ $(document).ready(function() {
 
   socket.on('messageescape', function (data)
   {
-    var obj = JSON.parse(data);
-    waitingresponse(obj);
-    phase = obj.step;
-    console.log(obj.step);
-    
-
+    if(stateReady){
+        var obj = JSON.parse(data);
+        waitingresponse(obj);
+        phase = obj.step;
+        console.log(obj.step);
+    }
   });
 
   socket.on('timeElapsed',function(data){
@@ -187,7 +191,6 @@ function runFistDelay(){
   
   console.log('run');
   $('#container-bas-secu-id').hide();
-  $('#introductionAlertSound')[0].play();  
 
   timeAction = setTimeout(firstAction,3000);
 }
@@ -245,6 +248,7 @@ function sixAction(){
 }
 
 function lastAction(){
+  stateReady = true; // we can start receiving pin messages 
   $('#introductionAlertSound')[0].pause();
   $('#ambianceSound')[0].play();
   $('#ambianceSound')[0].loop = true;
