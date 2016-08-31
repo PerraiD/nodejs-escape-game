@@ -141,10 +141,21 @@ var SampleApp = function()
              self.LastStep = 0;
              self.userErrors = 0;
 
-             endtime = 'none';
-             self.io.sockets.emit('endtimechange', endtime.toString()); // we stop the timer on index.html
+        
              self.io.sockets.emit('stopBombAnimation');
              res.send("animation stopped");
+        }
+
+        self.routes['/api/wescapestopwin'] = function(req,res)
+        {
+             self.io.sockets.emit('stopwin');
+             res.send("timer stopped with win time");
+        }    
+
+        self.routes['/api/wescapestopfail'] = function(req,res)
+        {
+            self.io.sockets.emit('stopfail');
+             res.send("timer stopped with fail time");
         }
 
         self.routes['/api/wescapewelcomeanimation'] = function(req,res){

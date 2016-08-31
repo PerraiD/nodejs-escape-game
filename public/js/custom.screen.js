@@ -72,8 +72,7 @@ $(document).ready(function() {
   socket.on('endtimechange', function (data)
   {
     console.log(data);
-  });	
-  stopTimer();
+  });	 
 
 });
 
@@ -262,21 +261,29 @@ function lastAction(){
   
 }
 
-
-function stopTimer()
-{
-
-			$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestoptimer",
+function stopTimerWin(){
+  	$.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapestopwin",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
-				 	console.log("timeAction stop");
-        //  timeAction = setTimeout(phase1,1000);
+				 	console.log("timeAction stop with win");     
 				 	 }
 			}) 
-			
-}; 
+
+}
+
+function stopTimerFail(){
+  	$.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapestopfail",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	console.log("timeAction stop with fail");       
+				 	 }
+			}) 
+}
+
 
 function startTimer()
 {
@@ -334,7 +341,7 @@ function secureDesactive(){
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Bravo sécurité désactivée</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
-  stopTimer();
+  stopTimerWin();
 }
 
 function explosion(){
@@ -349,7 +356,7 @@ function explosion(){
   $('#txtparasite').html("Désoler, bombe explosée !");
   $('#txtparasite').show();
 
-  stopTimer();
+  stopTimerFail();
 }
 
 function addMinutes(date, minutes) {

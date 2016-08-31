@@ -17,7 +17,6 @@ $(document).ready(function() {
  
   CSSstopTimer();
   
- 
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
   });
@@ -51,7 +50,34 @@ $(document).ready(function() {
     }
 
 
-  });	
+  });
+
+  socket.on('stopBombAnimation', function() 
+  {
+    location.reload();
+  });
+
+  socket.on('stopwin' , function(){
+      $('#lowBtmSound')[0].pause();
+      $('#highBtmSound')[0].pause();
+      $("body").css("background","#228B22");
+      $('.container-timer').html('');
+      $('.container-timer').html('<h1>Desactivated</h1>');
+     
+
+  });
+
+  socket.on('stopfail' , function(){
+      $('#lowBtmSound')[0].pause();
+      $('#highBtmSound')[0].pause();
+      
+      $('.time-minutes').html('--');
+      $('.time-seconds-texte').html('--');
+      $('.time-milliseconds').html('--');
+
+  });
+
+
   socket.on('endtimechange', function (data)
   {
     console.log("endTimeCalled");
@@ -65,7 +91,8 @@ $(document).ready(function() {
         tid = setInterval(getTimeRemaining, 25);
        
 
-    }else{     
+    }else{ 
+
       CSSstopTimer();
       setTimerToNull();
     }
@@ -83,7 +110,7 @@ function setTimerToNull(){
       $('.time-seconds-texte').html('--');
       $('.time-milliseconds').html('--');
       hidingNumber = false;
-      CSSstopTimer();
+     
 }
 
 function CSSstartTimer(){
