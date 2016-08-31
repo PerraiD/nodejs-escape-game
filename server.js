@@ -237,7 +237,7 @@ var SampleApp = function()
                             if(pinId === 31){ //good cuted pin                             
                                 message.validate = true;
                             }else{
-                                self.incrementeUserError();
+                                self.incrementeUserError(message);
                             }
                             message.step = self.LastStep;
                         }   
@@ -248,7 +248,7 @@ var SampleApp = function()
                             if(pinId === 36){
                                 message.validate = true;
                             }else{
-                                self.incrementeUserError();
+                                self.incrementeUserError(message);
                             }
                             message.step = self.LastStep;
                         }
@@ -258,7 +258,7 @@ var SampleApp = function()
                             if(pinId === 42){
                                 message.validate = true;
                             }else{
-                                self.incrementeUserError();
+                                self.incrementeUserError(message);
                             }
                             message.step = self.LastStep;
                         }
@@ -268,7 +268,7 @@ var SampleApp = function()
                             if(pinId === 49){
                                 message.validate = true;
                             }else{
-                                self.incrementeUserError();
+                                self.incrementeUserError(message);
                             }
                             message.step = self.LastStep;
                         }
@@ -287,7 +287,7 @@ var SampleApp = function()
         };
 
 
-        self.incrementeUserError = function(){
+        self.incrementeUserError = function(message){
              self.userErrors++;
              message.userErrors = self.userErrors;
         }
