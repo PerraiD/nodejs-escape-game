@@ -216,7 +216,7 @@ var SampleApp = function()
                     }else{
                          var message={
                             id: pinId,
-                            step : 0,
+                            step : self.LastStep,
                             userErrors: self.userErrors,
                             validate : false,
                             fatal : false
@@ -225,9 +225,8 @@ var SampleApp = function()
                         /** control for fatal step like cutting a pin in a bad step */
                         if( (pinId > 31 && self.LastStep === 0) 
                             || (pinId > 37 && self.LastStep === 1) 
-                            || (pinId > 43 && self.LastStep === 2)                         
-                        )
-                        {
+                            || (pinId > 43 && self.LastStep === 2)){
+                            
                             self.LastStep = 0;
                             message.fatal = true;
                         }
@@ -279,9 +278,8 @@ var SampleApp = function()
                         self.io.sockets.emit('messageescape', JSON.stringify(message));
                     } 
 
-
                    
-                    res.send("messageescape id : "+req.params.id+" bien envoyé");
+                    res.json(message);
                
         };
 
