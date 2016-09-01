@@ -9,6 +9,7 @@ var tid = null;
 var speed = 1000;
 var init = false;
 var step = 0;
+var finalEndTime = 0;
 var hidingNumber = false;
 
 
@@ -32,7 +33,8 @@ $(document).ready(function() {
     if(!obj.validate && !obj.fatal){
        switch (obj.userErrors) {
          case 1:
-           speed = 500;                    
+           speed = 500;
+           finalEndTime = endTimeBomb/2;                 
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
@@ -157,16 +159,21 @@ function screenReussi(){
 var currentSecond=0;
 function getTimeRemaining(){
  
+
   var t = endTimeBomb - Date.now();
-
+  
+  if(finalEndTime >= t){
+    t  = finalEndTime - t;
+  }
+  
   console.log(t);
-
+ 
   var milliseconds = Math.floor( (t) % 60 );
   
   if(milliseconds > -1 || (Math.floor((t/1000) % 60 ) == 0)){
     
     if (milliseconds < 10){
-    milliseconds = '0'+milliseconds;
+      milliseconds = '0'+milliseconds;
     }
     var seconds = Math.floor( (t/speed) % 60 );
     if (seconds < 10){
