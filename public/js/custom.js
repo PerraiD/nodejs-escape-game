@@ -198,7 +198,7 @@ function getTimeRemaining(){
       minutes = '0'+minutes;
   }
  
- if(Int.parse(seconds) <= 1 && Int.parse(minutes) == 0){
+ if(parseInt(seconds) <= 1 && parseInt(minutes) == 0){
     
     if(!hidingNumber){
       $('.time-minutes').html(minutes);
