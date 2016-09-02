@@ -160,7 +160,7 @@ function screenReussi(){
 var currentSecond=0;
 function getTimeRemaining(){
  
-   console.log(endTimeBomb);
+  
   var t = endTimeBomb - Date.now();
   
   if(finalEndTime >= t){
@@ -172,34 +172,34 @@ function getTimeRemaining(){
  
   var milliseconds = Math.floor( (t) % 60 );
   
-  if(milliseconds > -1 || (Math.floor((t/speed) % 60 ) == 0)){
+  if (milliseconds < 10){
+    milliseconds = '0'+milliseconds;
+  }
+  var seconds = Math.floor( (t/speed) % 60 );
+  if (seconds < 10){
+    seconds = '0'+seconds;
+  }
+  if(seconds !== currentSecond){
+    $('#lowBtmSound')[0].load();
+    $('#lowBtmSound')[0].play();            
+    currentSecond = seconds;
+  }
+  var minutes = Math.floor((t/speed/60) % 60);
+  if(speed != 1000){
+    minutes = minutes/2;
+    if(minutes % 1 === 0){
+      minutes = minutes-1;
+    }else{
+      minutes = Math.floor(minutes);
+    }
+
+  }
+  if (minutes < 10){
+      minutes = '0'+minutes;
+  }
+ 
+ if((minutes > -1 &&  milliseconds > -1 && seconds > -1) || (Math.floor((t/speed) % 60 ) == 0)){
     
-    if (milliseconds < 10){
-      milliseconds = '0'+milliseconds;
-    }
-    var seconds = Math.floor( (t/speed) % 60 );
-    if (seconds < 10){
-      seconds = '0'+seconds;
-    }
-    if(seconds !== currentSecond){
-      $('#lowBtmSound')[0].load();
-      $('#lowBtmSound')[0].play();            
-      currentSecond = seconds;
-    }
-    var minutes = Math.floor((t/speed/60) % 60);
-    if(speed != 1000){
-      minutes = minutes/2;
-      if(minutes % 1 === 0){
-        minutes = minutes-1;
-      }else{
-        minutes = Math.floor(minutes);
-      }
-  
-    }
-    if (minutes < 10){
-        minutes = '0'+minutes;
-    }
-    console.log(minutes);
     if(!hidingNumber){
       $('.time-minutes').html(minutes);
       $('.time-seconds-texte').html(seconds);
