@@ -159,10 +159,11 @@ function screenReussi(){
 var currentSecond=0;
 function getTimeRemaining(){
  
-
+   console.log(endTimeBomb);
   var t = endTimeBomb - Date.now();
   
   if(finalEndTime >= t){
+    console.log(finalEndTime);
     t  = finalEndTime - t;
   }
   
@@ -170,7 +171,7 @@ function getTimeRemaining(){
  
   var milliseconds = Math.floor( (t) % 60 );
   
-  if(milliseconds > -1 || (Math.floor((t/1000) % 60 ) == 0)){
+  if(milliseconds > -1 || (Math.floor((t/speed) % 60 ) == 0)){
     
     if (milliseconds < 10){
       milliseconds = '0'+milliseconds;
