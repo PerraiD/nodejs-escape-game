@@ -199,7 +199,20 @@ function getTimeRemaining(){
   }
  
  if(parseInt(seconds) <= 1 && parseInt(minutes) == 0){
-    
+        
+    $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	console.log("timeAction stop");
+        //  timeAction = setTimeout(phase1,1000);
+				 	 }
+			}) 
+      setTimerToNull();
+  
+
+  }else{
     if(!hidingNumber){
       $('.time-minutes').html(minutes);
       $('.time-seconds-texte').html(seconds);
@@ -210,21 +223,6 @@ function getTimeRemaining(){
       $('.time-milliseconds').html("??");
     }
     
-
-  }else{
-
-    console.log('time ended');
-    $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
-				dataType: 'html',
-				jsonpCallback: 'callback',
-				 success: function() { 
-				 	console.log("timeAction stop");
-        //  timeAction = setTimeout(phase1,1000);
-				 	 }
-			}) 
-    setTimerToNull();
-  }
 }
 
 function toggleFullScreen() {
