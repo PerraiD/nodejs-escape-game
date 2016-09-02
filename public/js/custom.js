@@ -34,7 +34,7 @@ $(document).ready(function() {
        switch (obj.userErrors) {
          case 1:
            speed = 500;
-           finalEndTime = endTimeBomb/2;                 
+           finalEndTime = (endTimeBomb - Date.now())/2;                 
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
