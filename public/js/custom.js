@@ -222,7 +222,7 @@ function getTimeRemaining(){
       $('.time-seconds-texte').html("??");
       $('.time-milliseconds').html("??");
     }
-    
+  }
 }
 
 function toggleFullScreen() {
