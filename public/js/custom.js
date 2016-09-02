@@ -38,6 +38,7 @@ $(document).ready(function() {
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
+           finalEndTime = (endTimeBomb - Date.now())/2;
            break;
         case  3:
            hidingNumber = true;
