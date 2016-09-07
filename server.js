@@ -312,7 +312,7 @@ var SampleApp = function()
         };
 
           self.routes['/screen'] = function(req,res){
-             res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
+            res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
             res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             res.set('Content-Type', 'text/html');
