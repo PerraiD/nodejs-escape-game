@@ -193,7 +193,7 @@ var SampleApp = function()
 
            var body = req.body;
 
-           self.io.sockets.emit('statesChanges', JSON.stringify(body));
+           self.io.sockets.emit('statesChanges', body);
            res.status(200).send(req.body);
 
         }        
