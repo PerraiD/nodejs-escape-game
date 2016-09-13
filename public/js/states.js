@@ -28,8 +28,8 @@ $(document).ready(function() {
 		
 			$('#badge-'+obj.id).html('X');
 		}
-	});;	
-  	
+		});	
+  	});
 });
 
 
