@@ -193,7 +193,7 @@ var SampleApp = function()
 
            var body = req.body;
 
-           self.io.sockets.emit('statesChanges', JSON.stringify(stateMsg));
+           self.io.sockets.emit('statesChanges', JSON.stringify(body));
            res.status(200).send(req.body);
 
         }        
@@ -358,7 +358,7 @@ var SampleApp = function()
        
 
         for (var r in self.routes)
-        {   if(r === '/api/pinstate/:id'){
+        {   if(r === '/api/pinstates'){
                  self.app.post(r,self.routes[r]);
              }else{
                  self.app.get(r, self.routes[r]);
