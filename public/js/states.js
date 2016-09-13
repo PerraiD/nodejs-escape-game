@@ -12,23 +12,23 @@ $(document).ready(function() {
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
   socket.on('stateChange', function (data)
   {
-    var obj = JSON.parse(data);
-    console.log(obj);
-    if(obj.state){
-        $('#state'+obj.pinId).css("font-weight","normal");
-        $('#state'+obj.pinId).html('connected');      
-        $('#state'+obj.pinId).parent().removeClass('danger');
+    var arrayStates = JSON.parse(data);
+    arrayStates.foreach(function(obj){
+		if(obj.state){
+			$('#state'+obj.id).css("font-weight","normal");
+			$('#state'+obj.id).html('connected');      
+			$('#state'+obj.id).parent().removeClass('danger');
 
-        $('#badge-'+obj.pinId).html('OK');
-        
-    }else{
-        $('#state'+obj.pinId).css("font-weight","bold");
-        $('#state'+obj.pinId).html('disconnected');
-        $('#state'+obj.pinId).parent().addClass('danger');
-    
-        $('#badge-'+obj.pinId).html('X');
-    }
-  });	
+			$('#badge-'+obj.id).html('OK');
+			
+		}else{
+			$('#state'+obj.id).css("font-weight","bold");
+			$('#state'+obj.id).html('disconnected');
+			$('#state'+obj.id).parent().addClass('danger');
+		
+			$('#badge-'+obj.id).html('X');
+		}
+	});;	
   	
 });
 
