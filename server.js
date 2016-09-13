@@ -196,7 +196,7 @@ var SampleApp = function()
 
             var states = {};
             req.body.forEach(function(element) {
-                      states[element.id] = { id : id, state : element.state };
+                      states[element.id] = { id : element.id, state : element.state };
             }, this);          
 
 
