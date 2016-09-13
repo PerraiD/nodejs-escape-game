@@ -198,7 +198,7 @@ function getTimeRemaining(){
       minutes = '0'+minutes;
   }
  
- if(parseInt(seconds) <= 1 && parseInt(minutes) == 0){
+ if(t<0){
         
     $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
