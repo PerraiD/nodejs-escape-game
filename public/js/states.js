@@ -10,9 +10,10 @@ $(document).ready(function() {
 
 
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
-  socket.on('stateChange', function (data)
+  socket.on('statesChanges', function (data)
   {
     var arrayStates = JSON.parse(data);
+	console.log(arrayStates);
     arrayStates.foreach(function(obj){
 		if(obj.state){
 			$('#state'+obj.id).css("font-weight","normal");
