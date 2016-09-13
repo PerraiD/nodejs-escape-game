@@ -13,9 +13,10 @@ $(document).ready(function() {
   socket.on('statesChanges', function (data)
   {
 	console.log(data);
-    var arrayStates = JSON.parse(data);
-	console.log(arrayStates);
-    arrayStates.foreach(function(obj){
+    var objStates = JSON.parse(data);
+	console.log(objStates);
+
+    for(var obj in objStates) { 
 		if(obj.state){
 			$('#state'+obj.id).css("font-weight","normal");
 			$('#state'+obj.id).html('connected');      
