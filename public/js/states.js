@@ -16,7 +16,8 @@ $(document).ready(function() {
     var objStates = JSON.parse(data);
 	console.log(objStates);
 
-    for(var obj in objStates) { 
+    for(var key in objStates) { 
+		var obj = objStates[key];
 		if(obj.state){
 			$('#state'+obj.id).css("font-weight","normal");
 			$('#state'+obj.id).html('connected');      
