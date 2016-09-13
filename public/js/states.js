@@ -30,9 +30,9 @@ $(document).ready(function() {
 			$('#state'+obj.id).parent().addClass('danger');
 		
 			$('#badge-'+obj.id).html('X');
-		}
-		});	
-  	});
+			}
+		};	
+	});
 });
 
 
