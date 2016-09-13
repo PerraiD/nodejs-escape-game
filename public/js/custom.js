@@ -10,7 +10,7 @@ var speed = 1000;
 var init = false;
 var step = 0;
 var hidingNumber = false;
-
+var finalEndTime = 0;
 
 
 $(document).ready(function() {
