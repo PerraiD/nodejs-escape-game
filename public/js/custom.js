@@ -9,7 +9,6 @@ var tid = null;
 var speed = 1000;
 var init = false;
 var step = 0;
-var finalEndTime = 0;
 var hidingNumber = false;
 
 
@@ -34,11 +33,11 @@ $(document).ready(function() {
        switch (obj.userErrors) {
          case 1:
            speed = 500;
-           finalEndTime = (endTimeBomb - Date.now())/2;                 
+           finalEndTime = (endTimeBomb - Date.now())/2;              
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
-           finalEndTime = (endTimeBomb - Date.now())/2;
+           finalEndTime = (endTimeBomb - Date.now())/2;  
            break;
         case  3:
            hidingNumber = true;
@@ -89,7 +88,7 @@ $(document).ready(function() {
           clearInterval(tid); 
         }
         endTimeBomb = Date.parse(data);
-        tid = setInterval(getTimeRemaining, 25);
+        tid = setInterval(getTimeRemaining, 33);
        
 
     }else{ 
@@ -163,12 +162,23 @@ function getTimeRemaining(){
   
   var t = endTimeBomb - Date.now();
   
+   
   if(finalEndTime >= t){
     console.log(finalEndTime);
     t  = finalEndTime - t;
+    setTimerToNull();
+
+      $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	console.log("timeAction stop");
+        //  timeAction = setTimeout(phase1,1000);
+				 	 }
+			}) 
+   
   }
-  
-  console.log(t);
  
   var milliseconds = Math.floor( (t) % 60 );
   
@@ -198,7 +208,7 @@ function getTimeRemaining(){
       minutes = '0'+minutes;
   }
  
- if(t<0){
+ if(parseInt(seconds) <= 1 && parseInt(minutes) == 0){
         
     $.ajax({
 				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
