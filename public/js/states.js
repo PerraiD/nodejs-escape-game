@@ -12,6 +12,7 @@ $(document).ready(function() {
   socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
   socket.on('statesChanges', function (data)
   {
+	console.log(data);
     var arrayStates = JSON.parse(data);
 	console.log(arrayStates);
     arrayStates.foreach(function(obj){
