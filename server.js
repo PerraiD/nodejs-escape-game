@@ -189,16 +189,11 @@ var SampleApp = function()
              res.send("timer is ended").end();
         }
 
-        self.routes['/api/pinstate/:id'] = function(req,res){
-           var pinId = parseInt(req.params.id);
-           var body = req.body;
- 
-           var stateMsg = {
-               'pinId' : pinId,
-               'state' : body.state
-           }
+        self.routes['/api/pinstates'] = function(req,res){
 
-           self.io.sockets.emit('stateChange', JSON.stringify(stateMsg));
+           var body = req.body;
+
+           self.io.sockets.emit('statesChanges', JSON.stringify(stateMsg));
            res.status(200).send(req.body);
 
         }        
