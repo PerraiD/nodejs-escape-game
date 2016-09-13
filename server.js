@@ -193,8 +193,15 @@ var SampleApp = function()
 
            var body = req.body;
 
-           self.io.sockets.emit('statesChanges', body);
-           res.status(200).send(req.body);
+
+            var states = {};
+            req.body.forEach(function(element) {
+                      states[element.id] = { id : id, state : element.state };
+            }, this);          
+
+
+           self.io.sockets.emit('statesChanges', JSON.stringify(states));
+           res.status(200).send(states);
 
         }        
 
