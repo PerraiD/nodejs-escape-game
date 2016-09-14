@@ -159,7 +159,7 @@ function addMinutes(date, minutes) {
 
 
 function removeMinutes(date, minutes) {
-    return date - 120000;
+    return date - (minutes*60)*1000;
 }
 
 
