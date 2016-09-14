@@ -38,8 +38,9 @@ $(document).ready(function() {
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
            finalEndTime = (endTimeBomb - Date.now())/2;
-           console.log(finalEndTime);
-           if(finalEndTime < 0){
+           testEndingTime = finalEndTime - Date.now(); 
+           console.log(testEndingTime);
+           if(testEndingTime < 0){
              setTimerToNull();
            }
 
