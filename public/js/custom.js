@@ -37,7 +37,7 @@ $(document).ready(function() {
            break;
         case  2:
            console.log(finalEndTime);
-           endTimeBomb = removeMinutes(endTimeBomb,2);
+           endTimeBomb = removeMinutes(endTimeBomb,1);
            finalEndTime = removeMinutes(finalEndTime,1);        
            if(finalEndTime < 0){
              setTimerToNull();
