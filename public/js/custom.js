@@ -37,7 +37,11 @@ $(document).ready(function() {
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
-           finalEndTime = (endTimeBomb - Date.now())/2;  
+           //finalEndTime = (endTimeBomb - Date.now())/2;
+           if(endTimeBomb < 0){
+             setTimerToNull();
+           }
+
            break;
         case  3:
            hidingNumber = true;
@@ -103,6 +107,7 @@ $(document).ready(function() {
 });
 
 function setTimerToNull(){
+
       $('#lowBtmSound')[0].pause();
       $('#highBtmSound')[0].pause();
       clearInterval(tid);
@@ -110,6 +115,16 @@ function setTimerToNull(){
       $('.time-seconds-texte').html('00');
       $('.time-milliseconds').html('00');
       hidingNumber = false;
+
+       $.ajax({
+				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				dataType: 'html',
+				jsonpCallback: 'callback',
+				 success: function() { 
+				 	console.log("timeAction stop");
+        //  timeAction = setTimeout(phase1,1000);
+				 	 }
+			})  
      
 }
 
@@ -167,17 +182,7 @@ function getTimeRemaining(){
     console.log(finalEndTime);
     t  = finalEndTime - t;
     setTimerToNull();
-
-      $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
-				dataType: 'html',
-				jsonpCallback: 'callback',
-				 success: function() { 
-				 	console.log("timeAction stop");
-        //  timeAction = setTimeout(phase1,1000);
-				 	 }
-			}) 
-   
+        
   }
  
   var milliseconds = Math.floor( (t) % 60 );
