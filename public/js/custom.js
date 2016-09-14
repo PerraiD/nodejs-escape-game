@@ -97,8 +97,7 @@ $(document).ready(function() {
 
     }else{ 
 
-      CSSstopTimer();
-      setTimerToNull();
+      CSSstopTimer();     
     }
 
   });
