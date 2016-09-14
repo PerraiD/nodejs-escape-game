@@ -37,8 +37,8 @@ $(document).ready(function() {
            break;
         case  2:
            endTimeBomb = removeMinutes(endTimeBomb,2);
-           finalEndTime = endTimeBomb;
-           if(endTimeBomb < 0){
+           finalEndTime = (endTimeBomb - Date.now())/2;
+           if(finalEndTime < 0){
              setTimerToNull();
            }
 
@@ -78,7 +78,6 @@ $(document).ready(function() {
       $('#highBtmSound')[0].pause();
 
       setTimerToNull();
-
   });
 
 
