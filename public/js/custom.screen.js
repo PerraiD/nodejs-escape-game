@@ -127,7 +127,7 @@ function changePhase(){
 }
 
 function waitingresponse(data){
-
+ console.log(data);
   $(".logo-escape-container").addClass('heart');
   $('#ambianceSound')[0].pause();
   

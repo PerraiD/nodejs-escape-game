@@ -36,13 +36,11 @@ $(document).ready(function() {
            finalEndTime = (endTimeBomb - Date.now())/2;              
            break;
         case  2:
-           console.log(finalEndTime);
            endTimeBomb = removeMinutes(endTimeBomb,1);
            finalEndTime = removeMinutes(finalEndTime,0.5);        
            if(finalEndTime < 0){
              setTimerToNull();
            }
-
            break;
         case  3:
            hidingNumber = true;
@@ -95,8 +93,7 @@ $(document).ready(function() {
         tid = setInterval(getTimeRemaining, 33);
        
 
-    }else{ 
-
+    }else{
       CSSstopTimer();     
     }
 
@@ -236,20 +233,5 @@ function getTimeRemaining(){
       $('.time-seconds-texte').html("??");
       $('.time-milliseconds').html("??");
     }
-  }
-}
-
-function toggleFullScreen() {
-  var doc = window.document;
-  var docEl = doc.documentElement;
-
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
   }
 }
