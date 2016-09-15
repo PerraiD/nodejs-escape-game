@@ -16,11 +16,7 @@ var finalEndTime = 0;
            
 
 $(document).ready(function() {
-  
-   addEventListener('touchstart', function (e) {
-        $('#lowBtmSound')[0].play();
-       $('#lowBtmSound')[0].pause();
-    });
+       
 
   CSSstopTimer();
   
@@ -108,6 +104,12 @@ $(document).ready(function() {
 
   	 
 });
+
+function startSound(){
+    $('#soundoff').css('display','none');
+    $('#lowBtmSound')[0].play();
+    $('#lowBtmSound')[0].pause();
+}   
 
 function setTimerToNull(){
 
@@ -198,10 +200,8 @@ function getTimeRemaining(){
     seconds = '0'+seconds;
   }
   if(seconds !== currentSecond){   
-    fakeClick(function() {
-        $('#lowBtmSound')[0].load();
-        $('#lowBtmSound')[0].play();
-    });            
+    $('#lowBtmSound')[0].load();
+    $('#lowBtmSound')[0].play();       
     currentSecond = seconds;
   }
   var minutes = Math.floor((t/speed/60) % 60);
@@ -244,27 +244,3 @@ function getTimeRemaining(){
     }
   }
 }
-
-function fakeClick(fn) {
-            var $a = $('<a href="#" id="fakeClick"></a>');
-                $a.bind("click", function(e) {
-                    e.preventDefault();
-                    fn();
-                });
-
-            $("body").append($a);
-
-            var evt, 
-                el = $("#fakeClick").get(0);
-
-            if (document.createEvent) {
-                evt = document.createEvent("MouseEvents");
-                if (evt.initMouseEvent) {
-                    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    el.dispatchEvent(evt);
-                }
-            }
-
-            $(el).remove();
-        }
-        

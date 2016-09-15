@@ -325,3 +325,11 @@ body {
 100%{clip:rect(77px,9999px,49px,0)}
 }
 
+#soundoff{
+  position:absolute;
+  top: 2%;
+  right: 4%;
+  color:white !important;
+  font-size: 5vh;
+  height: 100%;
+}
