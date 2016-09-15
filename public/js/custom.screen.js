@@ -352,7 +352,7 @@ function explosion(){
   $("body").css("background-color","#FF0000");  
   $("#txtparasite").addClass('parasitec');
   $("#txtparasite").attr("data-text", "System Failure");
-  $('#txtparasite').html("Désoler, bombe explosée !");
+  $('#txtparasite').html("Bombe explosée !");
   $('#txtparasite').show();
 
   stopTimerFail();
