@@ -16,7 +16,12 @@ var finalEndTime = 0;
            
 
 $(document).ready(function() {
- 
+  
+   addEventListener('touchstart', function (e) {
+        $('#lowBtmSound')[0].play();
+       $('#lowBtmSound')[0].pause();
+    });
+
   CSSstopTimer();
   
   $('.intro').css({
