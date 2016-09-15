@@ -127,7 +127,6 @@ function changePhase(){
 }
 
 function waitingresponse(data){
- console.log(data);
   $(".logo-escape-container").addClass('heart');
   $('#ambianceSound')[0].pause();
   
@@ -149,7 +148,7 @@ function waitingresponse(data){
           screenreponsewrong();
         },5000);
 
-      }else{
+      }else if(data.id === 48){
          timeAction = setTimeout(function(){
           stopHeart();
           explosion();          
@@ -163,7 +162,7 @@ function waitingresponse(data){
            screenreponsegood();
           }
           ,5000);
-        }else{
+        }else if(data.id === 49){
           timeAction = setTimeout(function(){
             stopHeart();
             secureDesactive();
