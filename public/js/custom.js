@@ -200,7 +200,7 @@ function getTimeRemaining(){
     seconds = '0'+seconds;
   }
   if(seconds !== currentSecond){   
-    $('#lowBtmSound')[0].load();
+    //$('#lowBtmSound')[0].load();
     $('#lowBtmSound')[0].play();       
     currentSecond = seconds;
   }
