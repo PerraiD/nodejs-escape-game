@@ -346,6 +346,7 @@ function secureDesactive(){
 function explosion(){
   
   $('#ambianceSound')[0].pause();
+  $('#explosionSound')[0].loop = false;
   $('#explosionSound')[0].play();
 
   $('.container-bas-secu').html('<p></p>');
