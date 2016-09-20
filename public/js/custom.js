@@ -49,11 +49,11 @@ $(document).ready(function() {
            hidingNumber = true;
            break;
          case  4:
-           setTimerToNull();
+          setTimerToNull();
  
        }
       
-    }else if(obj.fatal || step === 4){
+    }else if(obj.fatal){
          setTimerToNull();       
     }
 
@@ -66,6 +66,7 @@ $(document).ready(function() {
   });
 
   socket.on('stopwin' , function(){
+    
       $('#lowBtmSound')[0].pause();
       $('#highBtmSound')[0].pause();
       $("body").css("background","#228B22");
@@ -110,6 +111,19 @@ function startSound(){
     $('#lowBtmSound')[0].play();
     $('#lowBtmSound')[0].pause();
 }   
+
+
+function endTimerToNull(){
+
+      $('#lowBtmSound')[0].pause();
+      $('#highBtmSound')[0].pause();
+      clearInterval(tid);
+      $('.time-minutes').html('00');
+      $('.time-seconds-texte').html('00');
+      $('.time-milliseconds').html('00');
+      hidingNumber = false;
+
+}
 
 function setTimerToNull(){
 
