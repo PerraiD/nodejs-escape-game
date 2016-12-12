@@ -149,7 +149,7 @@ function setTimerToNull(){
 
 function CSSstartTimer(){
 
-     $('body').css('background','##6E1E78');
+     $('body').css('background','#6E1E78');
      $('#centered-div-stop').hide();
      $('#particles').show();     
     //  $('#particles').particleground({
