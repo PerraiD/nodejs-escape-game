@@ -211,8 +211,8 @@ function firstAction(){
 }
 
 function secondAction(){
- $("#txtparasite").attr("data-text", "L'INNOGURATION DE L'ETAGE");
- $('#txtparasite').html("L'INNOGURATION DE L'ETAGE");
+ $("#txtparasite").attr("data-text", "L'INAUGURATION DE L'ETAGE");
+ $('#txtparasite').html("L'INAUGURATION DE L'ETAGE");
  timeAction = setTimeout(thirdAction,3000);
 }
 
