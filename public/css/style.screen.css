@@ -33,7 +33,7 @@ body {
 .container-row{
   height : 100%;
   font-size: 8vh;
-  background-color: rgba(200, 25, 55, 1);
+  /*background-color: rgba(200, 25, 55, 1);*/
 }
 
 .border-not-full{

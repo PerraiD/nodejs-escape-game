@@ -149,13 +149,13 @@ function setTimerToNull(){
 
 function CSSstartTimer(){
 
-     $('body').css('background','#e11937');
+     $('body').css('background','##6E1E78');
      $('#centered-div-stop').hide();
      $('#particles').show();     
-     $('#particles').particleground({
-      dotColor: '#5cbdaa',
-      lineColor: '#5cbdaa',
-    });
+    //  $('#particles').particleground({
+    //   dotColor: '#5cbdaa',
+    //   lineColor: '#5cbdaa',
+    // });
 }
 
 function CSSstopTimer(){

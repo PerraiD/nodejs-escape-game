@@ -111,7 +111,7 @@ function changePhase(){
   $('#failSound')[0].pause();
   $('#ambianceSound')[0].play();
 
-  $("body").css("background-color","#e11937");
+  $("body").css("background-color","#6E1E78");
     switch(phase) {
         case 1:
             phase2();
@@ -180,11 +180,11 @@ function stopHeart(){
 
 function addparticle(){
   
-  $('#particles').particleground({
-    dotColor: '#5cbdaa',
-    lineColor: '#5cbdaa',
-    density : 10000
-  });
+  // $('#particles').particleground({
+  //   dotColor: '#5cbdaa',
+  //   lineColor: '#5cbdaa',
+  //   density : 10000
+  // });
 
 }
 
@@ -253,7 +253,7 @@ function lastAction(){
   $('#ambianceSound')[0].play();
   $('#ambianceSound')[0].loop = true;
 
-  $("body").css("background-color","#a01937");
+  $("body").css("background-color","#6E1E78");
   $('#txtparasite').hide();
  
   startTimer();
@@ -411,7 +411,7 @@ function toggleFullScreen() {
 
 function startCSSBombAnimation(){
 
-    //$("body").css("background","rgba(160, 25, 55, 1)");
+    $("body").css("background","##6E1E78");
 
     $('#txtparasite').removeClass('parasite');
     $('#txtparasite').removeClass('parasiteb');
