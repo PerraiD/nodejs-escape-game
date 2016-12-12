@@ -69,7 +69,7 @@ $(document).ready(function() {
     
       $('#lowBtmSound')[0].pause();
       $('#highBtmSound')[0].pause();
-      $("body").css("background","#228B22");
+      $("body").css("background","#82be00");
       $('.container-timer').html('');
       $('.container-timer').html('<h1>Desarmed</h1>');
      
