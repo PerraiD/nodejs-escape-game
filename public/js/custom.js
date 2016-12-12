@@ -136,7 +136,7 @@ function setTimerToNull(){
       hidingNumber = false;
 
        $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				url: "https://escape-inno.herokuapp.com/api/timeelapsed",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -235,7 +235,7 @@ function getTimeRemaining(){
  if(parseInt(seconds) <= 1 && parseInt(minutes) == 0){
         
     $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/timeelapsed",
+				url: "https://escape-inno.herokuapp.com/api/timeelapsed",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 

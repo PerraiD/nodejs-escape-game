@@ -205,14 +205,14 @@ function runSecondDelay(){
 
 function firstAction(){
  
- $('#txtparasite').html('DANS');
- $("#txtparasite").attr("data-text", "DANS");
-  timeAction = setTimeout(secondAction,3000);
+ $('#txtparasite').html('A');
+ $("#txtparasite").attr("data-text", "A");
+  timeAction = setTimeout(secondAction,2000);
 }
 
 function secondAction(){
- $("#txtparasite").attr("data-text", "L'IOT ROOM");
- $('#txtparasite').html("L'IOT ROOM");
+ $("#txtparasite").attr("data-text", "L'INNOGURATION DE L'ETAGE");
+ $('#txtparasite').html("L'INNOGURATION DE L'ETAGE");
  timeAction = setTimeout(thirdAction,3000);
 }
 
@@ -262,7 +262,7 @@ function lastAction(){
 
 function stopTimerWin(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapestopwin",
+				url: "https://escape-inno.herokuapp.com/api/wescapestopwin",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -274,7 +274,7 @@ function stopTimerWin(){
 
 function stopTimerFail(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapestopfail",
+				url: "https://escape-inno.herokuapp.com/api/wescapestopfail",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -288,7 +288,7 @@ function startTimer()
 {
 
 			$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescaperestarttimer",
+				url: "https://escape-inno.herokuapp.com/api/wsescaperestarttimer",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
