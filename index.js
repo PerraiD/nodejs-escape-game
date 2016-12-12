@@ -34,7 +34,7 @@ var SampleApp = function()
     self.setupVariables = function()
     {
         //  Set the environment variables we need
-        self.port      = (process.env.PORT || 5000);
+        self.port      = process.env.PORT || 5000;
 
     };
 
