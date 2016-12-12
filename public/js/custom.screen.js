@@ -244,7 +244,7 @@ function sixAction(){
  addparticle();
  $("#txtparasite").removeClass('parasiteb');
  $("#txtparasite").attr("data-text", "ERROR");
- $('#txtparasite').html("CGI SECURITY ACTIVATED");
+ $('#txtparasite').html("SNCF SECURITY ACTIVATED");
  timeAction = setTimeout(lastAction,4000);
 }
 

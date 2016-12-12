@@ -9,12 +9,12 @@ var socket = null;
 $(document).ready(function() {
 
 
-  socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
+  socket = io.connect('https://escape-inno.herokuapp.com');
   socket.on('statesChanges', function (data)
   {
-	console.log(data);
+		console.log(data);
     var objStates = JSON.parse(data);
-	console.log(objStates);
+		console.log(objStates);
 
     for(var key in objStates) { 
 		var obj = objStates[key];
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 function stopAnimation(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestopanimation",
+				url: "https://escape-inno.herokuapp.com/api/wsescapestopanimation",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -51,7 +51,7 @@ function stopAnimation(){
 
 function startAnimation(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescapestartanimation",
+				url: "https://escape-inno.herokuapp.com/api/wsescapestartanimation",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -62,7 +62,7 @@ function startAnimation(){
 
 function welcomeAnimation(){
   	$.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wescapewelcomeanimation",
+				url: "https://escape-inno.herokuapp.com/api/wescapewelcomeanimation",
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
@@ -73,7 +73,7 @@ function welcomeAnimation(){
 
 function debug(id){
     $.ajax({
-				url: "http://digitalweek-escapegameiot.rhcloud.com/api/wsescape/"+id,
+				url: "https://escape-inno.herokuapp.com/api/wsescape/"+id,
 				dataType: 'html',
 				jsonpCallback: 'callback',
 				 success: function() { 
