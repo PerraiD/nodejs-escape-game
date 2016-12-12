@@ -38,9 +38,6 @@ var SampleApp = function()
 
     };
 
-
-
-
     /**
      *  Populate the cache.
      */
