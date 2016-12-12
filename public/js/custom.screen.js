@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   stoppedCSSBombAnimation();
 
-  socket = io.connect('http://digitalweek-escapegameiot.rhcloud.com:8000');
+  socket = io.connect('https://escape-inno.herokuapp.com');
 
 
   socket.on('stopBombAnimation', function(){
