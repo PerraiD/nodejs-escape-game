@@ -411,7 +411,7 @@ function toggleFullScreen() {
 
 function startCSSBombAnimation(){
 
-    $("body").css("background","rgba(160, 25, 55, 1)");
+    //$("body").css("background","rgba(160, 25, 55, 1)");
 
     $('#txtparasite').removeClass('parasite');
     $('#txtparasite').removeClass('parasiteb');
