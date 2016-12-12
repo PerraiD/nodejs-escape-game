@@ -91,7 +91,7 @@ function wrongdone(){
 
    $('#failSound')[0].play();
 
-   $("body").css("background-color",'#FF0000');
+   $("body").css("background-color",'#CD0037');
    $('.logo-escape-container').css("background-image", "url(../img/wrong.png)");
    $('.container-bas-secu').html('<p>TIME ERROR X00F3566</p>'); 
    timeAction = setTimeout(changePhase,4000);
@@ -102,7 +102,7 @@ function welldone(){
    $('#successSound')[0].play();   
 
    $('.logo-escape-container').css("background-image", "url(../img/welldone.png)");
-   $("body").css("background-color","#228B22");
+   $("body").css("background-color","#82BE00");
    $('.container-bas-secu').html('<p>Bien joué !</p>'); 
    timeAction = setTimeout(changePhase,3000);
 }
@@ -335,7 +335,7 @@ function secureDesactive(){
   $('#ambianceSound')[0].pause();
   $('#shutdownSound')[0].play();
  
-  $("body").css("background-color","#228B22");
+  $("body").css("background-color","#82be00");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
   $('.container-bas-secu').html('<p>Bravo sécurité désactivée</p>');
@@ -350,7 +350,7 @@ function explosion(){
   $('#explosionSound')[0].play();
 
   $('.container-bas-secu').html('<p></p>');
-  $("body").css("background-color","#FF0000");  
+  $("body").css("background-color","#CD0037");  
   $("#txtparasite").addClass('parasitec');
   $("#txtparasite").attr("data-text", "System Failure");
   $('#txtparasite').html("Bombe explosée !");
