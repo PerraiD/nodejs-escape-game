@@ -20,7 +20,6 @@ $(document).ready(function() {
 
   socket = io.connect('https://escape-inno.herokuapp.com');
 
-
   socket.on('stopBombAnimation', function(){
     location.reload(); //reloading to be in waiting state
   });

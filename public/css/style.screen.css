@@ -429,3 +429,10 @@ animation:anim-2 3s infinite linear alternate-reverse}
   -o-transform-origin: 100% 100%;
   transform-origin: 100% 100%;
 }
+
+.container-bas-droite-cgi{
+  font-size:2vh;
+  position:absolute;
+  top:95%;
+  left:2%;
+}

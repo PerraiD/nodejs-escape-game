@@ -333,3 +333,10 @@ body {
   font-size: 5vh;
   height: 100%;
 }
+
+.container-bas-droite-cgi{
+  font-size:2vh;
+  position:absolute;
+  top:95%;
+  left:2%;
+}
