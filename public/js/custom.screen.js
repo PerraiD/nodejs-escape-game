@@ -204,14 +204,14 @@ function runSecondDelay(){
 
 function firstAction(){
  
- $('#txtparasite').html('A');
- $("#txtparasite").attr("data-text", "A");
+ $('#txtparasite').html('À');
+ $("#txtparasite").attr("data-text", "À");
   timeAction = setTimeout(secondAction,2000);
 }
 
 function secondAction(){
- $("#txtparasite").attr("data-text", "L'INAUGURATION DE L'ETAGE");
- $('#txtparasite').html("L'INAUGURATION DE L'ETAGE");
+ $("#txtparasite").attr("data-text", "TOUS");
+ $('#txtparasite').html("TOUS");
  timeAction = setTimeout(thirdAction,3000);
 }
 
