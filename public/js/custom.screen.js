@@ -337,7 +337,7 @@ function secureDesactive(){
   $("body").css("background-color","#82be00");
   $('.logo-escape-container').css("background-image", "url(../img/logo-escape-phase-5.png)"); 
   $(".logo-escape-container").css('opacity', '0');
-  $('.container-bas-secu').html('<p>Bravo sécurité désactivée </br> Votre énigme est "Mademoiselle Agnès à rencontré Jeronimo rusé"</p>');
+  $('.container-bas-secu').html('<p>Bravo sécurité désactivée </br> Votre énigme est "Mademoiselle Agnès a rencontré Jeronimo rusé"</p>');
   $(".logo-escape-container").fadeTo( 1000 , 1, function() {});
   stopTimerWin();
 }
